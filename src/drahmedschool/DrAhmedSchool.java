@@ -5,17 +5,40 @@
  */
 package drahmedschool;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+
 /**
  *
  * @author pc
  */
-public class DrAhmedSchool {
+public class DrAhmedSchool extends Application {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("views/Login.fxml"));
+
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        
+//        Stage properties
+        stage.setTitle("Dr Ahmed School");
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
+        stage.show();
     }
     
 }

@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 23, 2019, 11:37:41 AM
+    Author     : pc
+*/
+
+.flatbutton {
+    -fx-background-color: #6927ff;
+    -fx-text-fill: white;
+    -fx-border-radius: 100;
+}
+
+.flatbutton:hover {
+    -fx-background-color: #837dff;
+    -fx-text-fill: white;
+    -fx-border-radius: 0;
+}
+
+.textfield {
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
+}
+
+.sidebuttons:hover{
+    -fx-background-color: #837dff;
+    -fx-text-fill: white;
+    -fx-border-radius: 0;
+}
