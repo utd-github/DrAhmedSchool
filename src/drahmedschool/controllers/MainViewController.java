@@ -49,6 +49,32 @@ public class MainViewController implements Initializable {
         loadContainerUI("Assignments");
     }
 
+    @FXML
+    private void showStudents(ActionEvent event) {
+        loadContainerUI("Students");
+    }
+
+       @FXML
+    private void showTeachers(ActionEvent event) {
+        loadContainerUI("Teachers");
+    }
+    
+      @FXML
+    private void showClasses(ActionEvent event) {
+                loadContainerUI("Classes");
+
+    }
+    
+     @FXML
+    private void showSubjects(ActionEvent event) {
+                loadContainerUI("Subjects");
+
+    }
+    
+     @FXML
+    private void showExams(ActionEvent event) {
+        loadContainerUI("Exams");
+    }
     private void loadContainerUI(String ui) {
         Stage stage = new Stage();
         String uiPath = "drahmedschool/views/" + ui + ".fxml";
@@ -60,5 +86,13 @@ public class MainViewController implements Initializable {
             Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+   
+
+   
+
+  
+
+ 
 
 }
