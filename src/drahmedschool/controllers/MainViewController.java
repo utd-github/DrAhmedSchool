@@ -75,6 +75,21 @@ public class MainViewController implements Initializable {
     private void showExams(ActionEvent event) {
         loadContainerUI("Exams");
     }
+    
+     @FXML
+    private void showSettings(ActionEvent event) {
+         loadContainerUI("Settings");
+    }
+        @FXML
+    private void showSchedule(ActionEvent event) {
+         loadContainerUI("Schedule");               
+    }
+
+     @FXML
+    private void showEvents(ActionEvent event) {
+        loadContainerUI("Events");
+    }
+    
     private void loadContainerUI(String ui) {
         Stage stage = new Stage();
         String uiPath = "drahmedschool/views/" + ui + ".fxml";
@@ -87,12 +102,6 @@ public class MainViewController implements Initializable {
         }
     }
 
-   
 
    
-
-  
-
- 
-
 }

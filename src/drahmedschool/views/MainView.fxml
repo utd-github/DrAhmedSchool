@@ -65,7 +65,7 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../assets/images/order.png" />
+                              <Image url="@../assets/images/Assign.png" />
                            </image>
                         </ImageView>
                         <Label text="Assignments" textFill="WHITE">
@@ -89,7 +89,7 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../assets/images/order.png" />
+                              <Image url="@../assets/images/students.png" />
                            </image>
                         </ImageView>
                         <Label text="Students" textFill="WHITE">
@@ -113,7 +113,7 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../assets/images/order.png" />
+                              <Image url="@../assets/images/teachers.png" />
                            </image>
                         </ImageView>
                         <Label text="Teachers" textFill="WHITE">
@@ -137,7 +137,7 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../assets/images/order.png" />
+                              <Image url="@../assets/images/classes.png" />
                            </image>
                         </ImageView>
                         <Label text="Classes" textFill="WHITE">
@@ -161,7 +161,7 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../assets/images/order.png" />
+                              <Image url="@../assets/images/subject.png" />
                            </image>
                         </ImageView>
                         <Label text="Subjects" textFill="WHITE">
@@ -185,10 +185,82 @@
                               <Insets />
                            </HBox.margin>
                            <image>
-                              <Image url="@../assets/images/order.png" />
+                              <Image url="@../assets/images/exams.png" />
                            </image>
                         </ImageView>
                         <Label text="Exams" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#showSchedule" ripplerFill="#6927ff" styleClass="sidebuttons" stylesheets="@../assets/css/Main.css">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../assets/images/order.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Schedule" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#showEvents" ripplerFill="#6927ff" styleClass="sidebuttons" stylesheets="@../assets/css/Main.css">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../assets/images/events.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Events" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#showSettings" ripplerFill="#6927ff" styleClass="sidebuttons" stylesheets="@../assets/css/Main.css">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../assets/images/cog.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Setting" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>
