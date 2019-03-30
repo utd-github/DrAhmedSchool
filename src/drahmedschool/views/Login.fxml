@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="461.0" prefWidth="657.0" style="-fx-background-color: #837dff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drahmedschool.controllers.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="461.0" prefWidth="657.0" style="-fx-background-color: #837dff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drahmedschool.controllers.LoginController">
    <children>
       <VBox alignment="CENTER" layoutX="92.0" layoutY="117.0" prefHeight="461.0" prefWidth="322.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -34,9 +34,9 @@
                   <Font size="35.0" />
                </font>
             </Label>
-            <JFXTextField focusColor="WHITE" prefHeight="25.0" prefWidth="200.0" promptText="Username / Email" styleClass="textfield" stylesheets="@../assets/css/Main.css" unFocusColor="WHITE" />
-            <JFXPasswordField focusColor="WHITE" prefHeight="25.0" prefWidth="200.0" promptText="Password" styleClass="textfield" stylesheets="@../assets/css/Main.css" unFocusColor="WHITE" />
-            <JFXButton onAction="#singinAction" prefHeight="18.0" prefWidth="116.0" ripplerFill="#4c6bdd" styleClass="flatbutton" stylesheets="@../assets/css/Main.css" text="Sign in" textFill="WHITE">
+            <JFXTextField fx:id="emailInput" focusColor="WHITE" prefHeight="25.0" prefWidth="200.0" promptText="Username / Email" styleClass="textfield" stylesheets="@../assets/css/Main.css" unFocusColor="WHITE" />
+            <JFXPasswordField fx:id="passInput" focusColor="WHITE" prefHeight="25.0" prefWidth="200.0" promptText="Password" styleClass="textfield" stylesheets="@../assets/css/Main.css" unFocusColor="WHITE" />
+            <JFXButton defaultButton="true" onAction="#singinAction" prefHeight="18.0" prefWidth="116.0" ripplerFill="#4c6bdd" styleClass="flatbutton" stylesheets="@../assets/css/Main.css" text="Sign in" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
