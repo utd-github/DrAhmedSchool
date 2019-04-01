@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="342.0" prefWidth="424.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drahmedschool.controllers.SubnewController">
+   <children>
+      <VBox alignment="CENTER" fillWidth="false" layoutX="162.0" layoutY="71.0" prefHeight="257.0" prefWidth="424.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Subject Name">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Teacher">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Description">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </VBox>
+      <JFXButton layoutX="234.0" layoutY="295.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="318.0" layoutY="295.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

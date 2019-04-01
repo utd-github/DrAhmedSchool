@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drahmedschool.controllers.SubnewController">
+   <stylesheets>
+      <URL value="@/drahmedschool/assets/css/Main.css" />
+   </stylesheets>
+   <children>
+      <VBox alignment="BOTTOM_CENTER" fillWidth="false" layoutX="162.0" layoutY="71.0" prefHeight="260.0" prefWidth="350.0" spacing="15.0" AnchorPane.bottomAnchor="240.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Full Name">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Phone">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Address">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </VBox>
+      <JFXButton layoutX="527.0" layoutY="449.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="611.0" layoutY="449.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <VBox alignment="CENTER" fillWidth="false" layoutX="315.0" layoutY="68.0" prefHeight="183.0" prefWidth="350.0" spacing="15.0" AnchorPane.bottomAnchor="249.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
+         <children>
+            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Class Name">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Email">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </VBox>
+      <HBox layoutX="7.0" layoutY="295.0" prefHeight="102.0" prefWidth="350.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0">
+         <children>
+            <TextArea prefHeight="102.0" prefWidth="676.0" promptText="Bio" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

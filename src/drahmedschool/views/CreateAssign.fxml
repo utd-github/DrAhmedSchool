@@ -17,9 +17,9 @@
       <TableView layoutY="45.0" prefHeight="354.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
          <columns>
             <TableColumn prefWidth="75.0" text="#" />
-            <TableColumn prefWidth="75.0" text="Class Name" />
-            <TableColumn prefWidth="75.0" text="Room" />
-            <TableColumn prefWidth="75.0" text="Year" />
+            <TableColumn prefWidth="75.0" text="Assigment Title" />
+            <TableColumn prefWidth="150.0" text="Assignment Description" />
+            <TableColumn prefWidth="89.0" text="Deadline" />
             <TableColumn prefWidth="75.0" text="Actions" />
          </columns>
          <columnResizePolicy>
