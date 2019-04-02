@@ -9,9 +9,10 @@ and open the template in the editor.
 */
 
 .flatbutton {
-    -fx-background-color: #6927ff;
-    -fx-text-fill: white;
-    -fx-border-radius: 100;
+    -fx-background-color: white;
+    -fx-text-fill: #837dff;
+    -fx-border-color: #837dff;
+
 }
 
 .flatbutton:hover {
@@ -20,13 +21,19 @@ and open the template in the editor.
     -fx-border-radius: 0;
 }
 
+.sidebuttons:hover{
+    -fx-background-color:white ;
+    -fx-text-fill: #837dff;
+    -fx-border-radius: 0;
+
+}
+
 .textfield {
     -fx-text-fill: white;
     -fx-prompt-text-fill: white;
 }
 
-.sidebuttons:hover{
-    -fx-background-color: #837dff;
-    -fx-text-fill: white;
-    -fx-border-radius: 0;
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-background-color:  white;
 }

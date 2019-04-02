@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -27,6 +28,9 @@ import javafx.stage.Stage;
  */
 public class AssignmentsController implements Initializable {
 
+    @FXML
+    private TableView<?> assignmentsTable;
+
     /**
      * Initializes the controller class.
      */
@@ -36,8 +40,8 @@ public class AssignmentsController implements Initializable {
     }    
 
     @FXML
-    private void newAssignment(ActionEvent event) {
-         Parent root = null;
+    private void addNew(ActionEvent event) {
+          Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Newassignments.fxml"));
         } catch (IOException ex) {
