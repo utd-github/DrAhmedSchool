@@ -12,25 +12,6 @@
       <URL value="@/drahmedschool/assets/css/Main.css" />
    </stylesheets>
    <children>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="162.0" layoutY="71.0" prefHeight="257.0" prefWidth="424.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Exam Name" text="Event Title">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Exam Class" text="Place">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Exam Year" text="For">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </JFXTextField>
-         </children>
-      </VBox>
       <JFXButton layoutX="527.0" layoutY="449.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
          <font>
             <Font size="16.0" />
@@ -41,19 +22,24 @@
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="315.0" layoutY="95.0" prefHeight="257.0" prefWidth="424.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" fillWidth="false" layoutX="315.0" layoutY="95.0" prefHeight="257.0" prefWidth="424.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Exam Type" text="Event Type">
+            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Roll No" text="Title">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Exam Date" text="Date">
+            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Email" text="To">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Description">
+            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Gender" text="Date">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Submission Date" text="Description">
                <font>
                   <Font size="15.0" />
                </font>

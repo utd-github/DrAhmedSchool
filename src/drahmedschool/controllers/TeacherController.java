@@ -12,9 +12,9 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author Mohamed Jiingad
+ * @author pc
  */
-public class EventsController implements Initializable {
+public class TeacherController implements Initializable {
 
     /**
      * Initializes the controller class.

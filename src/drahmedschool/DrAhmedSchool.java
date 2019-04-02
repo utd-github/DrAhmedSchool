@@ -27,7 +27,7 @@ public class DrAhmedSchool extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("views/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("views/MainView.fxml"));
 
         Scene scene = new Scene(root);
         
@@ -35,7 +35,7 @@ public class DrAhmedSchool extends Application {
         
 //        Stage properties
         stage.setTitle("Dr Ahmed School");
-        stage.setResizable(false);
+//        stage.setResizable(false);
         stage.centerOnScreen();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
         stage.show();

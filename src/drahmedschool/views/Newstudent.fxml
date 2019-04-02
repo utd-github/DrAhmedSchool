@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -12,7 +13,7 @@
       <URL value="@/drahmedschool/assets/css/Main.css" />
    </stylesheets>
    <children>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="162.0" layoutY="71.0" prefHeight="257.0" prefWidth="424.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="BOTTOM_CENTER" fillWidth="false" layoutX="162.0" layoutY="71.0" prefHeight="304.0" prefWidth="350.0" spacing="15.0" AnchorPane.bottomAnchor="196.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="0.0">
          <children>
             <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Full Name">
                <font>
@@ -46,7 +47,7 @@
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="315.0" layoutY="95.0" prefHeight="257.0" prefWidth="424.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="BOTTOM_CENTER" fillWidth="false" layoutX="315.0" layoutY="95.0" prefHeight="304.0" prefWidth="350.0" spacing="15.0" AnchorPane.bottomAnchor="196.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Roll No">
                <font>
@@ -58,17 +59,26 @@
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Gender">
+            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Gender" text="DOB">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Submission Date">
+            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Roll No" text="Gender">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
          </children>
       </VBox>
+      <HBox alignment="TOP_CENTER" layoutX="57.0" layoutY="313.0" prefHeight="111.0" prefWidth="700.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="313.0">
+         <children>
+            <JFXTextField alignment="TOP_LEFT" prefHeight="39.0" prefWidth="637.0" promptText="Submission Date">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
