@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drahmedschool.controllers.StudentsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drahmedschool.controllers.MclassesController">
    <stylesheets>
       <URL value="@/drahmedschool/assets/css/Main.css" />
    </stylesheets>
@@ -28,7 +28,7 @@
       </TableView>
       <HBox alignment="CENTER_RIGHT" layoutX="1.0" prefHeight="45.0" prefWidth="600.0" style="-fx-background-color: #6a89cc;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#newClasses" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #4cd137;" text="New" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#Newclasses" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #4cd137;" text="New" textFill="WHITE">
                <HBox.margin>
                   <Insets left="500.0" />
                </HBox.margin>

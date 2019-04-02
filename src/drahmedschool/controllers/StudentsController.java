@@ -23,9 +23,9 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author pc
+ * @author Mohamed Jiingad
  */
-public class MclassesController implements Initializable {
+public class StudentsController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -34,12 +34,12 @@ public class MclassesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
+ 
     @FXML
-    private void Newclasses(ActionEvent event) {
-           Parent root = null;
+    private void Newstudent(ActionEvent event) {
+        Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Newclasses.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Newstudent.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(AssignmentsController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -56,6 +56,7 @@ public class MclassesController implements Initializable {
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
         stage.show();
     }
+
     
     
 }
