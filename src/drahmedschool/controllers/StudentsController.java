@@ -35,9 +35,10 @@ public class StudentsController implements Initializable {
         // TODO
     }    
  
+ 
     @FXML
-    private void Newstudent(ActionEvent event) {
-        Parent root = null;
+    private void addNew(ActionEvent event) {
+          Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Newstudent.fxml"));
         } catch (IOException ex) {
@@ -56,7 +57,7 @@ public class StudentsController implements Initializable {
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
         stage.show();
     }
+  
 
-    
-    
+
 }

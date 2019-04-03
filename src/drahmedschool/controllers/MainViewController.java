@@ -73,7 +73,7 @@ public class MainViewController implements Initializable {
     
      @FXML
     private void showExams(ActionEvent event) {
-        loadContainerUI("Exams");
+        loadContainerUI("Exam");
     }
     
      @FXML

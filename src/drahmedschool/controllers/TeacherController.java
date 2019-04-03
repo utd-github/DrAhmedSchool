@@ -35,10 +35,10 @@ public class TeacherController implements Initializable {
         // TODO
     }    
 
+
     @FXML
-    private void Newteachers(ActionEvent event) {
-   
-        Parent root = null;
+    private void addNew(ActionEvent event) {
+         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Newteacher.fxml"));
         } catch (IOException ex) {

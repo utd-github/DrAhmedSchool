@@ -22,7 +22,7 @@ and open the template in the editor.
 }
 
 .sidebuttons:hover{
-    -fx-background-color:white ;
+    -fx-background-color:#192a56;
     -fx-text-fill: #837dff;
     -fx-border-radius: 0;
 

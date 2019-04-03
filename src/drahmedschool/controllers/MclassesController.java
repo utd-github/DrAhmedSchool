@@ -35,11 +35,12 @@ public class MclassesController implements Initializable {
         // TODO
     }    
 
+
     @FXML
-    private void Newclasses(ActionEvent event) {
-           Parent root = null;
+    private void addNew(ActionEvent event) {
+             Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Newclasses.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Newclass.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(AssignmentsController.class.getName()).log(Level.SEVERE, null, ex);
         }
