@@ -5,8 +5,11 @@
  */
 package drahmedschool.controllers;
 
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -16,6 +19,13 @@ import javafx.fxml.Initializable;
  */
 public class NewclassController implements Initializable {
 
+    @FXML
+    private JFXTextField cname;
+    @FXML
+    private JFXTextField croom;
+    @FXML
+    private JFXTextField cyear;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +33,9 @@ public class NewclassController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void submitForm(ActionEvent event) {
+    }
     
 }

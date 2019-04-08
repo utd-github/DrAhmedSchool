@@ -15,12 +15,12 @@
       <URL value="@/drahmedschool/assets/css/Main.css" />
    </stylesheets>
    <children>
-      <TableView layoutY="45.0" prefHeight="354.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
+      <TableView fx:id="teachersTable" layoutY="45.0" prefHeight="354.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
          <columns>
-            <TableColumn editable="false" maxWidth="40.0" minWidth="31.0" prefWidth="31.0" sortable="false" text="#" />
-            <TableColumn prefWidth="209.0" text="Name" />
-            <TableColumn prefWidth="75.0" text="Username" />
-            <TableColumn prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="nocolumn" editable="false" maxWidth="40.0" minWidth="31.0" prefWidth="31.0" sortable="false" text="#" />
+            <TableColumn fx:id="tname" prefWidth="209.0" text="Name" />
+            <TableColumn fx:id="tphone" prefWidth="75.0" text="Phone" />
+            <TableColumn fx:id="temail" prefWidth="75.0" text="Email" />
             <TableColumn prefWidth="75.0" text="Actions" />
          </columns>
          <columnResizePolicy>

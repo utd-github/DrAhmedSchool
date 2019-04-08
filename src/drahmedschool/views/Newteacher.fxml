@@ -17,46 +17,41 @@
    <children>
       <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="162.0" layoutY="71.0" prefHeight="257.0" prefWidth="424.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="75.0">
          <children>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Full Name" text="Name">
+            <JFXTextField fx:id="tname" prefHeight="39.0" prefWidth="284.0" promptText="Full Name">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Phone" text="Phone">
+            <JFXTextField fx:id="tphone" prefHeight="39.0" prefWidth="291.0" promptText="Phone">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Year" text="DOB">
+            <JFXTextField fx:id="tdes" prefHeight="39.0" prefWidth="284.0" promptText="Description">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
          </children>
       </VBox>
-      <JFXButton layoutX="527.0" layoutY="449.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
+      <JFXButton cancelButton="true" layoutX="527.0" layoutY="449.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="611.0" layoutY="449.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
+      <JFXButton defaultButton="true" layoutX="611.0" layoutY="449.0" onAction="#submitForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="315.0" layoutY="95.0" prefHeight="257.0" prefWidth="424.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+      <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="315.0" layoutY="98.0" prefHeight="143.0" prefWidth="350.0" spacing="15.0" AnchorPane.bottomAnchor="259.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="98.0">
          <children>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Roll No" text="Username">
+            <JFXTextField fx:id="temail" prefHeight="39.0" prefWidth="291.0" promptText="Email">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Email">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Submission Date" text="Joined Date">
+            <JFXTextField fx:id="tjdate" prefHeight="39.0" prefWidth="284.0" promptText="Joined Date">
                <font>
                   <Font size="15.0" />
                </font>

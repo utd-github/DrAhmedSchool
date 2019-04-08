@@ -12,34 +12,34 @@
       <URL value="@/drahmedschool/assets/css/Main.css" />
    </stylesheets>
    <children>
-      <JFXButton layoutX="527.0" layoutY="449.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
+      <JFXButton cancelButton="true" layoutX="527.0" layoutY="449.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="611.0" layoutY="449.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
+      <JFXButton defaultButton="true" layoutX="611.0" layoutY="449.0" onAction="#submitForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
       <VBox alignment="CENTER" fillWidth="false" layoutX="315.0" layoutY="95.0" prefHeight="257.0" prefWidth="424.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Roll No" text="Title">
+            <JFXTextField fx:id="eTitle" prefHeight="39.0" prefWidth="284.0" promptText="Roll No" text="Title">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Email" text="Location">
+            <JFXTextField fx:id="eLocation" prefHeight="39.0" prefWidth="291.0" promptText="Email" text="Location">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Gender" text="Date">
+            <JFXTextField fx:id="eDate" prefHeight="39.0" prefWidth="284.0" promptText="Gender" text="Date">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Submission Date" text="Description">
+            <JFXTextField fx:id="EDes" prefHeight="39.0" prefWidth="284.0" promptText="Submission Date" text="Description">
                <font>
                   <Font size="15.0" />
                </font>

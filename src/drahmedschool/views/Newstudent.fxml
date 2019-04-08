@@ -17,61 +17,56 @@
    <children>
       <VBox alignment="CENTER" fillWidth="false" layoutX="162.0" layoutY="71.0" prefHeight="352.0" prefWidth="350.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="75.0">
          <children>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Full Name">
+            <JFXTextField fx:id="stdname" prefHeight="39.0" prefWidth="284.0" promptText="Full Name">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Phone">
+            <JFXTextField fx:id="stdphone" prefHeight="39.0" prefWidth="291.0" promptText="Phone">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Age">
+            <JFXTextField fx:id="stdcyear" prefHeight="39.0" prefWidth="284.0" promptText="Class Year">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Year">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Year" text="Submistion Date">
+            <JFXTextField fx:id="stdsubdate" prefHeight="39.0" prefWidth="284.0" promptText="Submistion Date">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
          </children>
       </VBox>
-      <JFXButton layoutX="527.0" layoutY="449.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
+      <JFXButton cancelButton="true" layoutX="527.0" layoutY="449.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="611.0" layoutY="449.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
+      <JFXButton defaultButton="true" layoutX="611.0" layoutY="449.0" onAction="#submitForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
       <VBox alignment="CENTER" fillWidth="false" layoutX="315.0" layoutY="95.0" prefHeight="304.0" prefWidth="350.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
          <children>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Roll No">
+            <JFXTextField fx:id="stdrnum" prefHeight="39.0" prefWidth="284.0" promptText="Roll No">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Email">
+            <JFXTextField fx:id="stdemail" prefHeight="39.0" prefWidth="291.0" promptText="Email">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Gender" text="DOB">
+            <JFXTextField fx:id="stddob" prefHeight="39.0" prefWidth="284.0" promptText="Date Of Birth">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="284.0" promptText="Roll No" text="Gender">
+            <JFXTextField fx:id="stdgender" prefHeight="39.0" prefWidth="284.0" promptText="Gender">
                <font>
                   <Font size="15.0" />
                </font>
@@ -80,9 +75,9 @@
       </VBox>
       <HBox alignment="CENTER_LEFT" layoutX="24.0" layoutY="17.0" prefHeight="76.0" prefWidth="700.0" AnchorPane.bottomAnchor="424.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Student">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Student Form">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font>
             </Text>
          </children>

@@ -17,29 +17,29 @@
    <children>
       <VBox alignment="CENTER" fillWidth="false" layoutX="162.0" layoutY="71.0" prefHeight="273.0" prefWidth="500.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
          <children>
-            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Class Name">
+            <JFXTextField fx:id="cname" prefHeight="39.0" prefWidth="291.0" promptText="Class Name">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Description" text="Room">
+            <JFXTextField fx:id="croom" prefHeight="39.0" prefWidth="291.0" promptText="Description" text="Room">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField prefHeight="39.0" prefWidth="291.0" promptText="Description" text="Year">
+            <JFXTextField fx:id="cyear" prefHeight="39.0" prefWidth="291.0" promptText="Description" text="Year">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
          </children>
       </VBox>
-      <JFXButton layoutX="327.0" layoutY="349.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
+      <JFXButton cancelButton="true" layoutX="327.0" layoutY="349.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="411.0" layoutY="349.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
+      <JFXButton defaultButton="true" layoutX="411.0" layoutY="349.0" onAction="#submitForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
