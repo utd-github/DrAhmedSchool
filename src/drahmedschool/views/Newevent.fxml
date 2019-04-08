@@ -3,9 +3,12 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drahmedschool.controllers.NeweventController">
    <stylesheets>
@@ -22,29 +25,41 @@
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="315.0" layoutY="95.0" prefHeight="257.0" prefWidth="424.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" fillWidth="false" layoutX="83.0" layoutY="120.0" prefHeight="295.0" prefWidth="617.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
          <children>
-            <JFXTextField fx:id="eTitle" prefHeight="39.0" prefWidth="284.0" promptText="Roll No" text="Title">
+            <JFXTextField fx:id="eTitle" prefHeight="39.0" prefWidth="284.0" promptText="Title">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="eLocation" prefHeight="39.0" prefWidth="291.0" promptText="Email" text="Location">
+            <JFXTextField fx:id="eLocation" prefHeight="39.0" prefWidth="291.0" promptText="Location">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="eDate" prefHeight="39.0" prefWidth="284.0" promptText="Gender" text="Date">
+            <JFXTextField fx:id="eDate" prefHeight="39.0" prefWidth="284.0" promptText="Date">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="EDes" prefHeight="39.0" prefWidth="284.0" promptText="Submission Date" text="Description">
+            <JFXTextField fx:id="EDes" prefHeight="39.0" prefWidth="284.0" promptText="Description">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
          </children>
       </VBox>
+      <HBox alignment="CENTER_LEFT" layoutX="53.0" layoutY="14.0" prefHeight="74.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Events Form">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

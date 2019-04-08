@@ -22,12 +22,12 @@
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="croom" prefHeight="39.0" prefWidth="291.0" promptText="Description" text="Room">
+            <JFXTextField fx:id="croom" prefHeight="39.0" prefWidth="291.0" promptText="Room">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="cyear" prefHeight="39.0" prefWidth="291.0" promptText="Description" text="Year">
+            <JFXTextField fx:id="cyear" prefHeight="39.0" prefWidth="291.0" promptText="Year">
                <font>
                   <Font size="15.0" />
                </font>
@@ -46,7 +46,7 @@
       </JFXButton>
       <HBox alignment="CENTER_LEFT" layoutX="24.0" layoutY="17.0" prefHeight="76.0" prefWidth="455.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Classes">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Classes Form">
                <font>
                   <Font size="14.0" />
                </font>
