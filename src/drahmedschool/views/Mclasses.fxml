@@ -19,7 +19,8 @@
          <columns>
             <TableColumn prefWidth="75.0" text="#" />
             <TableColumn prefWidth="75.0" text="Class Name" />
-            <TableColumn prefWidth="75.0" text="Room" />
+            <TableColumn prefWidth="75.0" text="Teacher" />
+            <TableColumn prefWidth="75.0" text="Subject" />
             <TableColumn prefWidth="75.0" text="Year" />
             <TableColumn prefWidth="75.0" text="Actions" />
          </columns>

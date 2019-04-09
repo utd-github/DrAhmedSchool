@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
@@ -27,9 +28,19 @@ import javafx.stage.Stage;
  * @author pc
  */
 public class AssignmentsController implements Initializable {
-
+    
     @FXML
     private TableView<?> assignmentsTable;
+    @FXML
+    private TableColumn<?, ?> noColumn;
+    @FXML
+    private TableColumn<?, ?> titleColumn;
+    @FXML
+    private TableColumn<?, ?> classYearColumn;
+    @FXML
+    private TableColumn<?, ?> issuedColumn;
+    @FXML
+    private TableColumn<?, ?> deadlineColumn;
 
     /**
      * Initializes the controller class.
