@@ -23,17 +23,13 @@ import javafx.scene.control.Alert;
  */
 public class NewteacherController implements Initializable {
 
-    @FXML
     private JFXTextField tname;
-    @FXML
     private JFXTextField tphone;
    
-    @FXML
     private JFXTextField temail;
-    @FXML
     private JFXTextField tjdate;
-    @FXML
     private JFXTextField tdes;
+   
 
     /**
      * Initializes the controller class.

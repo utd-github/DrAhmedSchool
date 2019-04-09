@@ -11,10 +11,11 @@ package drahmedschool.db.models;
  */
 public class Assignments {
 
-    String no, title, issued, deadline, classYear, des;
+    String no,id, title, issued, deadline, classYear, des;
 
-    public Assignments(String no, String title, String issued, String deadline, String classYear, String des) {
+    public Assignments(String no, String id, String title, String issued, String deadline, String classYear, String des) {
         this.no = no;
+        this.id = id;
         this.title = title;
         this.issued = issued;
         this.deadline = deadline;
@@ -28,6 +29,14 @@ public class Assignments {
 
     public void setNo(String no) {
         this.no = no;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {

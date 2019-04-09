@@ -213,6 +213,52 @@ public class dbActions {
 
     
     
+      // Add Assignments
+    public boolean AddAssignments(String aTitle, String acid, String adeadline,String aissue, String aDes) {
+      
+        String sql = "INSERT INTO `assignments`( `class_id`, `title`, `issued`, `deadline`, `description`)"
+              + " VALUES ("
+              + "'"+acid+"'," 
+              + "'"+aTitle+"',"   
+              + "'"+adeadline+"',"
+               + "'"+aissue+"',"
+                + "'"+aDes+"'"              
+              + ")";
+        Statement st;
+        try {
+            st=con.createStatement();
+            st.execute(sql);
+            return true;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.print("Error Accured: " + ex.getMessage());
+        }
+        
+      
+        return false;
+    }
+    
+       //Get Assignments
+    public ResultSet getAssignments() {
+         String sql= "SELECT * FROM `assignments`";
+        Statement st;
+        try {
+            st=con.createStatement();
+            return st.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            return null;
+    }
+
+    
+    
+    
+    
+    
+    
+    
     
     
     
