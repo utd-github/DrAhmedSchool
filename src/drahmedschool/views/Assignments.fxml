@@ -46,10 +46,10 @@
         <columns>
           <TableColumn fx:id="noColumn" maxWidth="45.0" minWidth="45.0" prefWidth="45.0" text="#" />
           <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Title" />
-            <TableColumn fx:id="classYearColumn" prefWidth="75.0" text="Class Year" />
+            <TableColumn fx:id="classNameColumn" prefWidth="75.0" text="Class Year" />
             <TableColumn fx:id="issuedColumn" prefWidth="75.0" text="Issued" />
             <TableColumn fx:id="deadlineColumn" prefWidth="75.0" text="Deadline" />
-            <TableColumn prefWidth="75.0" text="Actions" />
+            <TableColumn fx:id="actionsColumn" prefWidth="75.0" text="Actions" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

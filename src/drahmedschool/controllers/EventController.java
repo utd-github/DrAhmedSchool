@@ -8,7 +8,6 @@ package drahmedschool.controllers;
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
 import drahmedschool.db.models.Events;
-import drahmedschool.db.models.Subjects;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -56,7 +55,6 @@ public class EventController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         getEvents();
-        
     }    
 
     @FXML
@@ -78,6 +76,9 @@ public class EventController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.centerOnScreen();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
+        stage.setOnHidden(e -> {
+            getEvents();
+        });
         stage.show();
     }
 

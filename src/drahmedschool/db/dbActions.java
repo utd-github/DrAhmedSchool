@@ -126,9 +126,6 @@ public class dbActions {
             return null;
     }
 
-    
-    
-    
         // Add Teachers
     public boolean AddTeachers(String name, String phone,  String email, String jdate, String des) {
       
@@ -171,8 +168,6 @@ public class dbActions {
   
     }
     
-    
-    
       // Add Events
     public boolean AddEvents(String eTitle, String eLocation, String eDate, String eDes) {
       
@@ -210,8 +205,6 @@ public class dbActions {
         }
             return null;
     }
-
-    
     
       // Add Assignments
     public boolean AddAssignments(String aTitle, String acid, String adeadline,String aissue, String aDes) {

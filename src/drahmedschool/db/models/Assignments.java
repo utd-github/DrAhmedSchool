@@ -11,15 +11,15 @@ package drahmedschool.db.models;
  */
 public class Assignments {
 
-    String no,id, title, issued, deadline, classYear, des;
+    String no, id, class_id, title, issued, deadline, des;
 
-    public Assignments(String no, String id, String title, String issued, String deadline, String classYear, String des) {
+    public Assignments(String no, String id, String class_id, String title, String issued, String deadline, String des) {
         this.no = no;
         this.id = id;
+        this.class_id = class_id;
         this.title = title;
         this.issued = issued;
         this.deadline = deadline;
-        this.classYear = classYear;
         this.des = des;
     }
 
@@ -37,6 +37,14 @@ public class Assignments {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getClass_id() {
+        return class_id;
+    }
+
+    public void setClass_id(String class_id) {
+        this.class_id = class_id;
     }
 
     public String getTitle() {
@@ -63,14 +71,6 @@ public class Assignments {
         this.deadline = deadline;
     }
 
-    public String getClassYear() {
-        return classYear;
-    }
-
-    public void setClassYear(String classYear) {
-        this.classYear = classYear;
-    }
-
     public String getDes() {
         return des;
     }
@@ -78,5 +78,5 @@ public class Assignments {
     public void setDes(String des) {
         this.des = des;
     }
-
+    
 }

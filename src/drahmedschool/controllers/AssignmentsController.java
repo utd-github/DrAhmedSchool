@@ -8,7 +8,6 @@ package drahmedschool.controllers;
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
 import drahmedschool.db.models.Assignments;
-import drahmedschool.db.models.Subjects;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -24,12 +23,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -37,7 +40,7 @@ import javafx.stage.Stage;
  * @author pc
  */
 public class AssignmentsController implements Initializable {
-    
+
     @FXML
     private TableView<Assignments> assignmentsTable;
     @FXML
@@ -45,24 +48,29 @@ public class AssignmentsController implements Initializable {
     @FXML
     private TableColumn<Assignments, String> titleColumn;
     @FXML
-    private TableColumn<Assignments, String> classYearColumn;
-    @FXML
     private TableColumn<Assignments, String> issuedColumn;
     @FXML
     private TableColumn<Assignments, String> deadlineColumn;
+    @FXML
+    private TableColumn<Assignments, String> classNameColumn;
+    @FXML
+    private TableColumn<Assignments, String> actionsColumn;
 
     /**
      * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         getAssignments();
-    }    
+    }
 
     @FXML
     private void addNew(ActionEvent event) {
-          Parent root = null;
+        Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Newassignments.fxml"));
         } catch (IOException ex) {
@@ -70,20 +78,22 @@ public class AssignmentsController implements Initializable {
         }
 
         Scene scene = new Scene(root);
-        Stage stage= new Stage();
+        Stage stage = new Stage();
         stage.setScene(scene);
-        
+
 //        Stage properties
         stage.setTitle("Dr Ahmed School");
         stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.centerOnScreen();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
+        stage.setOnHidden(e -> {
+            getAssignments();
+        });
         stage.show();
     }
 
     private void getAssignments() {
-   
         ObservableList<Assignments> Obs = FXCollections.observableArrayList();
         dbActions action = new dbActions(dbConnection.dbConnect());
         ResultSet rs;
@@ -112,15 +122,47 @@ public class AssignmentsController implements Initializable {
     private void initAssignmentsTable(ObservableList<Assignments> Obs) {
         noColumn.setCellValueFactory(new PropertyValueFactory<>("no"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
-        classYearColumn.setCellValueFactory(new PropertyValueFactory<>("cyaer"));
-        issuedColumn.setCellValueFactory(new PropertyValueFactory<>("issue"));        
+        classNameColumn.setCellValueFactory(new PropertyValueFactory<>("class_id"));
+        issuedColumn.setCellValueFactory(new PropertyValueFactory<>("issued"));
         deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
-
-
-       
-
+        actionsColumn.setCellFactory(cellFactory);
         assignmentsTable.setItems(Obs);
 
     }
-    
+
+    Callback<TableColumn<Assignments, String>, TableCell<Assignments, String>> cellFactory = (final TableColumn<Assignments, String> param) -> {
+        final TableCell<Assignments, String> cell = new TableCell<Assignments, String>() {
+
+            final Button rbtn = new Button("Remove");
+            final Button ebtn = new Button("Edit");
+
+            final HBox con = new HBox();
+            
+            @Override
+            public void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                    setText(null);
+                } else {
+                    con.getChildren().clear();
+                    con.setSpacing(5.0);
+                    rbtn.getStyleClass().add("flatbutton");
+                    ebtn.getStyleClass().add("flatbutton");
+                    con.getChildren().addAll(rbtn, ebtn);
+
+                    rbtn.setOnAction(event -> {
+                        System.out.println("Deleting ");
+                    });
+
+                    ebtn.setOnAction(event -> {
+                        System.out.println("Editintg");
+                    });
+                    setGraphic(con);
+                    setText(null);
+                }
+            }
+        };
+        return cell;
+    };
 }
