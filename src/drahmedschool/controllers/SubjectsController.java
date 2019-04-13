@@ -7,6 +7,7 @@ package drahmedschool.controllers;
 
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
+import drahmedschool.db.models.Assignments;
 import drahmedschool.db.models.Subjects;
 import drahmedschool.db.models.Teachers;
 import java.io.IOException;
@@ -24,12 +25,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -46,6 +51,8 @@ public class SubjectsController implements Initializable {
     private TableColumn<Subjects, String> sname;
     @FXML
     private TableColumn<Subjects, String> sdes;
+    @FXML
+    private TableColumn<Subjects, String> actionsColumn;
 
     /**
      * Initializes the controller class.
@@ -75,6 +82,9 @@ public class SubjectsController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.centerOnScreen();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
+         stage.setOnHidden(e -> {
+            getSubjects();
+        });
         stage.show();
     }
 
@@ -106,10 +116,46 @@ public class SubjectsController implements Initializable {
         nocolumn.setCellValueFactory(new PropertyValueFactory<>("no"));
         sname.setCellValueFactory(new PropertyValueFactory<>("name"));
         sdes.setCellValueFactory(new PropertyValueFactory<>("des"));
-       
+       actionsColumn.setCellFactory(cellFactory);
+
 
         subjetsTable.setItems(Obs);
 
     }
+    Callback<TableColumn<Subjects, String>, TableCell<Subjects, String>> cellFactory = (final TableColumn<Subjects, String> param) -> {
+        final TableCell<Subjects, String> cell = new TableCell<Subjects, String>() {
+
+            final Button rbtn = new Button("Remove");
+            final Button ebtn = new Button("Edit");
+
+            final HBox con = new HBox();
+            
+            @Override
+            public void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                    setText(null);
+                } else {
+                    con.getChildren().clear();
+                    con.setSpacing(5.0);
+                    rbtn.getStyleClass().add("flatbutton");
+                    ebtn.getStyleClass().add("flatbutton");
+                    con.getChildren().addAll(rbtn, ebtn);
+
+                    rbtn.setOnAction(event -> {
+                        System.out.println("Deleting ");
+                    });
+
+                    ebtn.setOnAction(event -> {
+                        System.out.println("Editintg");
+                    });
+                    setGraphic(con);
+                    setText(null);
+                }
+            }
+        };
+        return cell;
+    };
     
 }

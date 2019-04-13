@@ -23,11 +23,16 @@ import javafx.scene.control.Alert;
  */
 public class NewteacherController implements Initializable {
 
+    @FXML
     private JFXTextField tname;
+    @FXML
     private JFXTextField tphone;
    
+    @FXML
     private JFXTextField temail;
+    @FXML
     private JFXTextField tjdate;
+    @FXML
     private JFXTextField tdes;
    
 
@@ -71,7 +76,8 @@ public class NewteacherController implements Initializable {
     }
 
     private boolean checkFields() {
-     return !"".equals(tname.getText().trim())&&!"".equals(tphone.getText().trim())
+     return !"".equals(tname.getText().trim())
+             &&!"".equals(tphone.getText().trim())
              &&!"".equals(temail.getText().trim())             
              &&!"".equals(tjdate.getText().trim())
              &&!"".equals(tdes.getText().trim());

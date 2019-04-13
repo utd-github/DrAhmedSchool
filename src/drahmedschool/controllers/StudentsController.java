@@ -8,6 +8,7 @@ package drahmedschool.controllers;
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
 import drahmedschool.db.models.Students;
+import drahmedschool.db.models.Teachers;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -23,12 +24,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -49,6 +54,8 @@ public class StudentsController implements Initializable {
     private TableColumn<Students, String> stdemail;
     @FXML
     private TableColumn<Students, String> stdcyear;
+    @FXML
+    private TableColumn<Students, String> actionsColumn;
 
     /**
      * Initializes the controller class.
@@ -78,6 +85,9 @@ public class StudentsController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.centerOnScreen();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
+          stage.setOnHidden(e -> {
+            getStudents();
+        });
         stage.show();
     }
 
@@ -115,9 +125,48 @@ public class StudentsController implements Initializable {
         stdphone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         stdemail.setCellValueFactory(new PropertyValueFactory<>("email"));
         stdcyear.setCellValueFactory(new PropertyValueFactory<>("year"));
-
+        actionsColumn.setCellFactory(cellFactory);
+         
         studentsTable.setItems(Obs);
 
     }
 
+    Callback<TableColumn<Students, String>, TableCell<Students, String>> cellFactory = (final TableColumn<Students, String> param) -> {
+        final TableCell<Students, String> cell = new TableCell<Students, String>() {
+
+            final Button rbtn = new Button("Remove");
+            final Button ebtn = new Button("Edit");
+
+            final HBox con = new HBox();
+            
+            @Override
+            public void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                    setText(null);
+                } else {
+                    con.getChildren().clear();
+                    con.setSpacing(5.0);
+                    rbtn.getStyleClass().add("flatbutton");
+                    ebtn.getStyleClass().add("flatbutton");
+                    con.getChildren().addAll(rbtn, ebtn);
+
+                    rbtn.setOnAction(event -> {
+                        System.out.println("Deleting ");
+                    });
+
+                    ebtn.setOnAction(event -> {
+                        System.out.println("Editintg");
+                    });
+                    setGraphic(con);
+                    setText(null);
+                }
+            }
+        };
+        return cell;
+    };
+
+    
+    
 }

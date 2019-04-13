@@ -8,6 +8,7 @@ package drahmedschool.controllers;
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
 import drahmedschool.db.models.Events;
+import drahmedschool.db.models.Students;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -23,12 +24,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -47,6 +52,8 @@ public class EventController implements Initializable {
     private TableColumn<Events, String> elocation;
     @FXML
     private TableColumn<Events, String> edate;
+    @FXML
+    private TableColumn<Events, String> actionsColumn;
 
     /**
      * Initializes the controller class.
@@ -116,8 +123,46 @@ public class EventController implements Initializable {
         etitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         elocation.setCellValueFactory(new PropertyValueFactory<>("location"));       
         edate.setCellValueFactory(new PropertyValueFactory<>("edate"));        
-      
+        actionsColumn.setCellFactory(cellFactory);
         eventsTable.setItems(Obs);
     }
+    
+     Callback<TableColumn<Events, String>, TableCell<Events, String>> cellFactory = (final TableColumn<Events, String> param) -> {
+        final TableCell<Events, String> cell = new TableCell<Events, String>() {
+
+            final Button rbtn = new Button("Remove");
+            final Button ebtn = new Button("Edit");
+
+            final HBox con = new HBox();
+            
+            @Override
+            public void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                    setText(null);
+                } else {
+                    con.getChildren().clear();
+                    con.setSpacing(5.0);
+                    rbtn.getStyleClass().add("flatbutton");
+                    ebtn.getStyleClass().add("flatbutton");
+                    con.getChildren().addAll(rbtn, ebtn);
+
+                    rbtn.setOnAction(event -> {
+                        System.out.println("Deleting ");
+                    });
+
+                    ebtn.setOnAction(event -> {
+                        System.out.println("Editintg");
+                    });
+                    setGraphic(con);
+                    setText(null);
+                }
+            }
+        };
+        return cell;
+    };
+
+    
     
 }

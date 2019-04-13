@@ -20,7 +20,7 @@
             <TableColumn fx:id="nocolumn" prefWidth="75.0" text="#" />
             <TableColumn fx:id="sname" prefWidth="75.0" text="Name" />
             <TableColumn fx:id="sdes" prefWidth="75.0" text="Description" />
-            <TableColumn prefWidth="75.0" text="Actions" />
+            <TableColumn fx:id="actionsColumn" prefWidth="75.0" text="Actions" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

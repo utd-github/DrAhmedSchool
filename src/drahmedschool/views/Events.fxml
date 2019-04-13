@@ -21,7 +21,7 @@
             <TableColumn fx:id="etitle" prefWidth="75.0" text="Title" />
             <TableColumn fx:id="elocation" prefWidth="75.0" text="Location" />
             <TableColumn fx:id="edate" prefWidth="75.0" text="Date" />
-            <TableColumn prefWidth="75.0" text="Actions" />
+            <TableColumn fx:id="actionsColumn" prefWidth="75.0" text="Actions" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

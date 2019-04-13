@@ -22,7 +22,7 @@
             <TableColumn fx:id="stdphone" prefWidth="75.0" text="Phone" />
             <TableColumn fx:id="stdemail" prefWidth="75.0" text="Email" />
             <TableColumn fx:id="stdcyear" prefWidth="75.0" text="Class Year" />
-            <TableColumn prefWidth="75.0" text="Actions" />
+            <TableColumn fx:id="actionsColumn" prefWidth="75.0" text="Actions" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
