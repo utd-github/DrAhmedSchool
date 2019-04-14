@@ -7,8 +7,6 @@ package drahmedschool.controllers;
 
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
-import drahmedschool.db.models.Students;
-import drahmedschool.db.models.Subjects;
 import drahmedschool.db.models.Teachers;
 import java.io.IOException;
 import java.net.URL;
@@ -129,7 +127,16 @@ public class TeacherController implements Initializable {
         teachersTable.setItems(Obs);
 
     }
+    
+ public void removeTeachers(String id) {
+        dbActions action = new dbActions(dbConnection.dbConnect());
 
+        if (action.removeTeachers(id)) {
+            getTeachers();
+        } else {
+            System.out.print("Error Accured while removing");
+        }
+    }
      Callback<TableColumn<Teachers, String>, TableCell<Teachers, String>> cellFactory = (final TableColumn<Teachers, String> param) -> {
         final TableCell<Teachers, String> cell = new TableCell<Teachers, String>() {
 
@@ -152,6 +159,8 @@ public class TeacherController implements Initializable {
                     con.getChildren().addAll(rbtn, ebtn);
 
                     rbtn.setOnAction(event -> {
+                         Teachers teachers = getTableView().getItems().get(getIndex());
+                        removeTeachers(teachers.getId()); 
                         System.out.println("Deleting ");
                     });
 

@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -130,6 +131,16 @@ public class AssignmentsController implements Initializable {
 
     }
 
+    public void removeAssignment(String id) {
+        dbActions action = new dbActions(dbConnection.dbConnect());
+
+        if (action.removeAssignments(id)) {
+            getAssignments();
+        } else {
+            System.out.print("Error Accured while removing");
+        }
+    }
+
     Callback<TableColumn<Assignments, String>, TableCell<Assignments, String>> cellFactory = (final TableColumn<Assignments, String> param) -> {
         final TableCell<Assignments, String> cell = new TableCell<Assignments, String>() {
 
@@ -137,7 +148,7 @@ public class AssignmentsController implements Initializable {
             final Button ebtn = new Button("Edit");
 
             final HBox con = new HBox();
-            
+
             @Override
             public void updateItem(String item, boolean empty) {
                 super.updateItem(item, empty);
@@ -152,7 +163,10 @@ public class AssignmentsController implements Initializable {
                     con.getChildren().addAll(rbtn, ebtn);
 
                     rbtn.setOnAction(event -> {
+                        Assignments assignment = getTableView().getItems().get(getIndex());
+                        removeAssignment(assignment.getId());
                         System.out.println("Deleting ");
+
                     });
 
                     ebtn.setOnAction(event -> {
@@ -162,6 +176,7 @@ public class AssignmentsController implements Initializable {
                     setText(null);
                 }
             }
+
         };
         return cell;
     };

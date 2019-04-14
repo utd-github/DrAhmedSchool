@@ -122,6 +122,15 @@ public class SubjectsController implements Initializable {
         subjetsTable.setItems(Obs);
 
     }
+     public void removeSubjects(String id) {
+        dbActions action = new dbActions(dbConnection.dbConnect());
+
+        if (action.removeSubjects(id)) {
+            getSubjects();
+        } else {
+            System.out.print("Error Accured while removing");
+        }
+    }
     Callback<TableColumn<Subjects, String>, TableCell<Subjects, String>> cellFactory = (final TableColumn<Subjects, String> param) -> {
         final TableCell<Subjects, String> cell = new TableCell<Subjects, String>() {
 
@@ -144,6 +153,8 @@ public class SubjectsController implements Initializable {
                     con.getChildren().addAll(rbtn, ebtn);
 
                     rbtn.setOnAction(event -> {
+                        Subjects subjects = getTableView().getItems().get(getIndex());
+                        removeSubjects(subjects.getId());
                         System.out.println("Deleting ");
                     });
 

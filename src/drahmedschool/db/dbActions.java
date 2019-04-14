@@ -33,7 +33,7 @@ public class dbActions {
         ResultSet rs;
         try {
             stmt = con.createStatement();
-            
+
             rs = stmt.executeQuery(sql);
             return rs.next();
         } catch (SQLException ex) {
@@ -44,222 +44,198 @@ public class dbActions {
     }
 
     // Add Student
-    public boolean AddStudent(String name, String phone,  String year, String subdate, String rollnum, String email, String dob, String gender) {
-      
+    public boolean AddStudent(String name, String phone, String year, String subdate, String rollnum, String email, String dob, String gender) {
+
         String sql = "INSERT INTO `students`( `name`, `rollno`, `phone`, `email`, `dob`, `gender`, `year`, `sub_date`)"
-              + " VALUES ("
-              + "'"+name+"',"
-              + "'"+rollnum+"',"
-              + "'"+phone+"',"
-              + "'"+email+"',"
-              + "'"+dob+"',"
-              + "'"+gender+"',"
-              + "'"+year+"',"
-              + "'"+subdate+"'"
-              + ")";
+                + " VALUES ("
+                + "'" + name + "',"
+                + "'" + rollnum + "',"
+                + "'" + phone + "',"
+                + "'" + email + "',"
+                + "'" + dob + "',"
+                + "'" + gender + "',"
+                + "'" + year + "',"
+                + "'" + subdate + "'"
+                + ")";
         Statement st;
         try {
-            st=con.createStatement();
+            st = con.createStatement();
             st.execute(sql);
             return true;
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-      
+
         return false;
     }
-    
-    
+
     // Get Student
     public ResultSet getStudent() {
-      
-        String sql= "SELECT * FROM `students`";
+
+        String sql = "SELECT * FROM `students`";
         Statement st;
         try {
-            st=con.createStatement();
+            st = con.createStatement();
             return st.executeQuery(sql);
         } catch (SQLException ex) {
             Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
-      
-            return null;
-  
+
+        return null;
+
     }
-    
-    
+
     // Add Subject
     public boolean AddSubject(String name, String des) {
-      
+
         String sql = "INSERT INTO `subjects`( `name`, `des`)"
-              + " VALUES ("
-              + "'"+name+"',"     
-              + "'"+des+"'"              
-              + ")";
+                + " VALUES ("
+                + "'" + name + "',"
+                + "'" + des + "'"
+                + ")";
         Statement st;
         try {
-            st=con.createStatement();
+            st = con.createStatement();
             st.execute(sql);
             return true;
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
             System.out.print("Error Accured: " + ex.getMessage());
         }
-        
-      
+
         return false;
     }
-    
-        //Get Subjects
+
+    //Get Subjects
     public ResultSet getSubjects() {
-         String sql= "SELECT * FROM `subjects`";
+        String sql = "SELECT * FROM `subjects`";
         Statement st;
         try {
-            st=con.createStatement();
+            st = con.createStatement();
             return st.executeQuery(sql);
         } catch (SQLException ex) {
             Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
         }
-            return null;
+        return null;
     }
 
-        // Add Teachers
-    public boolean AddTeachers(String name, String phone,  String email, String jdate, String des) {
-      
+    // Add Teachers
+    public boolean AddTeachers(String name, String phone, String email, String jdate, String des) {
+
         String sql = "INSERT INTO `teacher`( `name`, `email`, `phone`, `jdate`, `des`)"
-              + " VALUES ("
-              + "'"+name+"',"
-              + "'"+phone+"',"
-              + "'"+email+"',"
-              + "'"+jdate+"',"
-              + "'"+des+"'"
-              + ")";
+                + " VALUES ("
+                + "'" + name + "',"
+                + "'" + phone + "',"
+                + "'" + email + "',"
+                + "'" + jdate + "',"
+                + "'" + des + "'"
+                + ")";
         Statement st;
         try {
-            st=con.createStatement();
+            st = con.createStatement();
             st.execute(sql);
             return true;
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-      
+
         return false;
-    }
-    
-     // Get Teachers
-    public ResultSet getTeachers() {
-      
-        String sql= "SELECT * FROM `teacher`";
-        Statement st;
-        try {
-            st=con.createStatement();
-            return st.executeQuery(sql);
-        } catch (SQLException ex) {
-            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      
-      
-            return null;
-  
-    }
-    
-      // Add Events
-    public boolean AddEvents(String eTitle, String eLocation, String eDate, String eDes) {
-      
-        String sql = "INSERT INTO `events`(  `title`, `location`, `edate`, `des`)"
-              + " VALUES ("
-              + "'"+eTitle+"',"     
-              + "'"+eLocation+"',"
-               + "'"+eDate+"',"
-                + "'"+eDes+"'"              
-              + ")";
-        Statement st;
-        try {
-            st=con.createStatement();
-            st.execute(sql);
-            return true;
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.print("Error Accured: " + ex.getMessage());
-        }
-        
-      
-        return false;
-    }
-    
-     //Get Events
-    public ResultSet getEvents() {
-         String sql= "SELECT * FROM `events`";
-        Statement st;
-        try {
-            st=con.createStatement();
-            return st.executeQuery(sql);
-        } catch (SQLException ex) {
-            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            return null;
-    }
-    
-      // Add Assignments
-    public boolean AddAssignments(String aTitle, String acid, String adeadline,String aissue, String aDes) {
-      
-        String sql = "INSERT INTO `assignments`( `class_id`, `title`, `issued`, `deadline`, `description`)"
-              + " VALUES ("
-              + "'"+acid+"'," 
-              + "'"+aTitle+"',"   
-              + "'"+adeadline+"',"
-               + "'"+aissue+"',"
-                + "'"+aDes+"'"              
-              + ")";
-        Statement st;
-        try {
-            st=con.createStatement();
-            st.execute(sql);
-            return true;
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.print("Error Accured: " + ex.getMessage());
-        }
-        
-      
-        return false;
-    }
-    
-       //Get Assignments
-    public ResultSet getAssignments() {
-         String sql= "SELECT * FROM `assignments`";
-        Statement st;
-        try {
-            st=con.createStatement();
-            return st.executeQuery(sql);
-        } catch (SQLException ex) {
-            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            return null;
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // Get Teachers
+    public ResultSet getTeachers() {
+
+        String sql = "SELECT * FROM `teacher`";
+        Statement st;
+        try {
+            st = con.createStatement();
+            return st.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+
+    }
+
+    // Add Events
+    public boolean AddEvents(String eTitle, String eLocation, String eDate, String eDes) {
+
+        String sql = "INSERT INTO `events`(  `title`, `location`, `edate`, `des`)"
+                + " VALUES ("
+                + "'" + eTitle + "',"
+                + "'" + eLocation + "',"
+                + "'" + eDate + "',"
+                + "'" + eDes + "'"
+                + ")";
+        Statement st;
+        try {
+            st = con.createStatement();
+            st.execute(sql);
+            return true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.print("Error Accured: " + ex.getMessage());
+        }
+
+        return false;
+    }
+
+    //Get Events
+    public ResultSet getEvents() {
+        String sql = "SELECT * FROM `events`";
+        Statement st;
+        try {
+            st = con.createStatement();
+            return st.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    // Add Assignments
+    public boolean AddAssignments(String aTitle, String acid, String adeadline, String aissue, String aDes) {
+
+        String sql = "INSERT INTO `assignments`( `class_id`, `title`, `issued`, `deadline`, `description`)"
+                + " VALUES ("
+                + "'" + acid + "',"
+                + "'" + aTitle + "',"
+                + "'" + adeadline + "',"
+                + "'" + aissue + "',"
+                + "'" + aDes + "'"
+                + ")";
+        Statement st;
+        try {
+            st = con.createStatement();
+            st.execute(sql);
+            return true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.print("Error Accured: " + ex.getMessage());
+        }
+
+        return false;
+    }
+
+    //Get Assignments
+    public ResultSet getAssignments() {
+        String sql = "SELECT * FROM `assignments`";
+        Statement st;
+        try {
+            st = con.createStatement();
+            return st.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
     // Close connection
     public void CloseConnection() {
         if (con != null) {
@@ -271,5 +247,73 @@ public class dbActions {
             }
         }
     }
+
+    public boolean removeAssignments(String id) {
+        String sql = "DELETE FROM `assignments` WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
     
+    public boolean removeTeachers(String id) {
+        String sql = "DELETE FROM `teacher` WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    public boolean removeSubjects(String id) {
+        String sql = "DELETE FROM `subjects` WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+     public boolean removeEvents(String id) {
+        String sql = "DELETE FROM `events` WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+     
+       public boolean removeStudents(String id) {
+        String sql = "DELETE FROM `students` WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+     
 }

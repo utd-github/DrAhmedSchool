@@ -131,6 +131,16 @@ public class StudentsController implements Initializable {
 
     }
 
+      public void removeStudents(String id) {
+        dbActions action = new dbActions(dbConnection.dbConnect());
+
+        if (action.removeStudents(id)) {
+            getStudents();
+        } else {
+            System.out.print("Error Accured while removing");
+        }
+    }
+    
     Callback<TableColumn<Students, String>, TableCell<Students, String>> cellFactory = (final TableColumn<Students, String> param) -> {
         final TableCell<Students, String> cell = new TableCell<Students, String>() {
 
@@ -157,6 +167,8 @@ public class StudentsController implements Initializable {
                     });
 
                     ebtn.setOnAction(event -> {
+                        Students student = getTableView().getItems().get(getIndex());
+                        removeStudents(student.getId());
                         System.out.println("Editintg");
                     });
                     setGraphic(con);

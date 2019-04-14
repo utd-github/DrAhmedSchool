@@ -127,6 +127,16 @@ public class EventController implements Initializable {
         eventsTable.setItems(Obs);
     }
     
+            public void removeEvents(String id) {
+        dbActions action = new dbActions(dbConnection.dbConnect());
+
+        if (action.removeEvents(id)) {
+            getEvents();
+        } else {
+            System.out.print("Error Accured while removing");
+        }
+    }
+    
      Callback<TableColumn<Events, String>, TableCell<Events, String>> cellFactory = (final TableColumn<Events, String> param) -> {
         final TableCell<Events, String> cell = new TableCell<Events, String>() {
 
@@ -149,6 +159,8 @@ public class EventController implements Initializable {
                     con.getChildren().addAll(rbtn, ebtn);
 
                     rbtn.setOnAction(event -> {
+                        Events events = getTableView().getItems().get(getIndex());
+                        removeEvents(events.getId());
                         System.out.println("Deleting ");
                     });
 
