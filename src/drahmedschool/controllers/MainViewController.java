@@ -44,10 +44,7 @@ public class MainViewController implements Initializable {
         loadContainerUI("Dashboard");
     }
 
-    @FXML
-    private void showAssignments(ActionEvent event) {
-        loadContainerUI("Assignments");
-    }
+    
 
     @FXML
     private void showStudents(ActionEvent event) {
@@ -76,19 +73,27 @@ public class MainViewController implements Initializable {
         loadContainerUI("Exam");
     }
     
-     @FXML
+    
     private void showSettings(ActionEvent event) {
          loadContainerUI("Settings");
     }
-        @FXML
-    private void showSchedule(ActionEvent event) {
-         loadContainerUI("Schedule");               
-    }
+   
 
-     @FXML
-    private void showEvents(ActionEvent event) {
-        loadContainerUI("Events");
+   @FXML
+    private void showSalary(ActionEvent event) {
+         loadContainerUI("Salary"); 
     }
+    
+       @FXML
+    private void showPayments(ActionEvent event) {
+         loadContainerUI("Payments"); 
+    }
+    
+    @FXML
+    private void showFinance(ActionEvent event) {
+         loadContainerUI("Finance");
+    }
+    
     
     private void loadContainerUI(String ui) {
         Stage stage = new Stage();
@@ -101,6 +106,16 @@ public class MainViewController implements Initializable {
             Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+   
+
+   
+
+    
+
+ 
+
+  
 
 
    

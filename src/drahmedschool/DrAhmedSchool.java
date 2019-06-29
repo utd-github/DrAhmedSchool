@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -26,8 +27,9 @@ public class DrAhmedSchool extends Application {
     }
 
     @Override
+
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("views/MainView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("views/Login.fxml"));
 
         Scene scene = new Scene(root);
         
@@ -35,7 +37,8 @@ public class DrAhmedSchool extends Application {
         
 //        Stage properties
         stage.setTitle("Dr Ahmed School");
-//        stage.setResizable(false);
+        stage.setResizable(false);
+        //stage.initStyle(StageStyle.UNDECORATED);
         stage.centerOnScreen();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
         stage.show();

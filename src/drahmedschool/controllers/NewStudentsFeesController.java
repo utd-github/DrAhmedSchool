@@ -21,18 +21,16 @@ import javafx.scene.control.Alert;
  *
  * @author Mohamed Jiingad
  */
-public class NewassignmentsController implements Initializable {
+public class NewStudentsFeesController implements Initializable {
 
     @FXML
-    private JFXTextField title;
+    private JFXTextField ffrom;
     @FXML
-    private JFXTextField cid;
+    private JFXTextField amount;
     @FXML
-    private JFXTextField des;
+    private JFXTextField ftype;
     @FXML
-    private JFXTextField aissue;
-    @FXML
-    private JFXTextField deadline;
+    private JFXTextField fdate;
 
     /**
      * Initializes the controller class.
@@ -44,17 +42,16 @@ public class NewassignmentsController implements Initializable {
 
     @FXML
     private void submitForm(ActionEvent event) {
-         dbActions action = new dbActions(dbConnection.dbConnect());
-        
+        dbActions action = new dbActions(dbConnection.dbConnect());
+         
           if(checkFields()){
-        String atitle = title.getText();
-        String aclsid = cid.getText();
-        String issue = aissue.getText();
-        String adeadline = deadline.getText();
-        String ades = des.getText();
+        String type = ftype.getText();
+        String payto = ffrom.getText();
+        String famount = amount.getText();
+        String kdate = fdate.getText();
         
         
-        if(action.AddAssignments(atitle, aclsid, adeadline, issue, ades)){ 
+        if(action.AddFees(type, payto, famount,kdate)){ 
             System.out.print("Inserted");
             ((Node) (event.getSource())).getScene().getWindow().hide();
         }else{
@@ -74,11 +71,13 @@ public class NewassignmentsController implements Initializable {
     }
 
     private boolean checkFields() {
-     return !"".equals(title.getText().trim())&&!"".equals(cid.getText().trim())                        
-             &&!"".equals(aissue.getText().trim())
-             &&!"".equals(deadline.getText().trim())  
-             &&!"".equals(des.getText().trim());
+     return !"".equals(ftype.getText().trim())
+             &&!"".equals(ffrom.getText().trim())
+             &&!"".equals(amount.getText().trim())             
+             &&!"".equals(fdate.getText().trim());
     }
+    
+    
     
     
 }

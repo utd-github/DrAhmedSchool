@@ -5,6 +5,7 @@
  */
 package drahmedschool.db;
 
+import com.jfoenix.controls.JFXTextField;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -108,7 +109,7 @@ public class dbActions {
         return false;
     }
 
-    //Get Subjects
+        //Get Subjects
     public ResultSet getSubjects() {
         String sql = "SELECT * FROM `subjects`";
         Statement st;
@@ -121,7 +122,7 @@ public class dbActions {
         return null;
     }
 
-    // Add Teachers
+        // Add Teachers
     public boolean AddTeachers(String name, String phone, String email, String jdate, String des) {
 
         String sql = "INSERT INTO `teacher`( `name`, `email`, `phone`, `jdate`, `des`)"
@@ -144,7 +145,7 @@ public class dbActions {
 
         return false;
     }
-
+     
     // Get Teachers
     public ResultSet getTeachers() {
 
@@ -160,16 +161,16 @@ public class dbActions {
         return null;
 
     }
+    
+       // Add Payments
+    public boolean AddPayments(String type, String fto, String famount, String fdate) {
 
-    // Add Events
-    public boolean AddEvents(String eTitle, String eLocation, String eDate, String eDes) {
-
-        String sql = "INSERT INTO `events`(  `title`, `location`, `edate`, `des`)"
+        String sql = "INSERT INTO `payments`( `type`, `Amount`, `payto`, `fdate`)"
                 + " VALUES ("
-                + "'" + eTitle + "',"
-                + "'" + eLocation + "',"
-                + "'" + eDate + "',"
-                + "'" + eDes + "'"
+                + "'" + type + "',"
+                + "'" + fto + "',"
+                + "'" + famount + "',"
+                + "'" + fdate + "' "
                 + ")";
         Statement st;
         try {
@@ -179,15 +180,16 @@ public class dbActions {
 
         } catch (SQLException ex) {
             Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.print("Error Accured: " + ex.getMessage());
+       
         }
 
         return false;
     }
+    
+     // Get Payments
+    public ResultSet getPayments() {
 
-    //Get Events
-    public ResultSet getEvents() {
-        String sql = "SELECT * FROM `events`";
+        String sql = "SELECT * FROM `payments`";
         Statement st;
         try {
             st = con.createStatement();
@@ -195,19 +197,20 @@ public class dbActions {
         } catch (SQLException ex) {
             Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         return null;
+
     }
+     
+      // Add fees
+    public boolean AddFees(String type, String ffrom, String famount, String fdate) {
 
-    // Add Assignments
-    public boolean AddAssignments(String aTitle, String acid, String adeadline, String aissue, String aDes) {
-
-        String sql = "INSERT INTO `assignments`( `class_id`, `title`, `issued`, `deadline`, `description`)"
+        String sql = "INSERT INTO `fees`( `type`, `Amount`, `payfrom`, `fdate`)"
                 + " VALUES ("
-                + "'" + acid + "',"
-                + "'" + aTitle + "',"
-                + "'" + adeadline + "',"
-                + "'" + aissue + "',"
-                + "'" + aDes + "'"
+                + "'" + type + "',"
+                + "'" + ffrom + "',"
+                + "'" + famount + "',"
+                + "'" + fdate + "' "
                 + ")";
         Statement st;
         try {
@@ -217,15 +220,16 @@ public class dbActions {
 
         } catch (SQLException ex) {
             Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.print("Error Accured: " + ex.getMessage());
+       
         }
 
         return false;
     }
+    
+     // Get fees
+    public ResultSet getFees() {
 
-    //Get Assignments
-    public ResultSet getAssignments() {
-        String sql = "SELECT * FROM `assignments`";
+        String sql = "SELECT * FROM `fees`";
         Statement st;
         try {
             st = con.createStatement();
@@ -233,10 +237,90 @@ public class dbActions {
         } catch (SQLException ex) {
             Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        return null;
+
+    }
+     
+//Add Classes
+    public boolean AddMclass(String name, String tid, String subid, String room, String des){
+        String sql = "INSERT INTO `mclass`(`name`, `tid`, `subid`, `room`, `des`)"
+                + " VALUES ("
+                + "'" + name + "',"
+                + "'" + tid + "',"
+                + "'" + subid + "',"
+                + "'" + room + "',"
+                + "'" + des + "'"
+                + ")";
+        Statement st;
+        try {
+            st = con.createStatement();
+            st.execute(sql);
+            return true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+        
+    }
+    //Get Classes
+    public ResultSet getMclass() {
+
+        String sql = "SELECT * FROM `mclass`";
+        Statement st;
+        try {
+            st = con.createStatement();          
+            return st.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return null;
     }
+    
+   //Add Exams
+    public boolean AddExams(String type, String eclass, String sid, String edate, String memo){
+        String sql = "INSERT INTO `exam`( `type`, `eclass`, `sid`, `edate`, `memo`)"
+                + " VALUES ("
+                + "'" + type + "',"
+                + "'" + eclass + "',"
+                + "'" + sid + "',"
+                + "'" + edate + "',"
+                + "'" + memo + "'"
+                + ")";
+        Statement st;
+        try {
+            st = con.createStatement();
+            st.execute(sql);
+            return true;
 
-    // Close connection
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        
+        }
+
+        return false;
+        
+    }
+    //Get Exams
+    public ResultSet getExams() {
+        String sql = "SELECT * FROM `exam`";
+        Statement st;
+        try {
+            st = con.createStatement();          
+            return st.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+    }
+    
+    
+    
+// Close connection
     public void CloseConnection() {
         if (con != null) {
             try {
@@ -247,21 +331,7 @@ public class dbActions {
             }
         }
     }
-
-    public boolean removeAssignments(String id) {
-        String sql = "DELETE FROM `assignments` WHERE id='" + id + "';";
-        Statement stmt;
-        ResultSet rs;
-        try {
-            stmt = con.createStatement();
-            stmt.execute(sql);
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }
-    
+    //remove Teachers
     public boolean removeTeachers(String id) {
         String sql = "DELETE FROM `teacher` WHERE id='" + id + "';";
         Statement stmt;
@@ -275,6 +345,7 @@ public class dbActions {
         }
         return false;
     }
+        //remove Subjects
     public boolean removeSubjects(String id) {
         String sql = "DELETE FROM `subjects` WHERE id='" + id + "';";
         Statement stmt;
@@ -288,20 +359,7 @@ public class dbActions {
         }
         return false;
     }
-     public boolean removeEvents(String id) {
-        String sql = "DELETE FROM `events` WHERE id='" + id + "';";
-        Statement stmt;
-        ResultSet rs;
-        try {
-            stmt = con.createStatement();
-            stmt.execute(sql);
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }
-     
+       //remove Students
        public boolean removeStudents(String id) {
         String sql = "DELETE FROM `students` WHERE id='" + id + "';";
         Statement stmt;
@@ -315,5 +373,66 @@ public class dbActions {
         }
         return false;
     }
-     
+//remove class
+    public boolean removeMclass(String id) {
+       
+ String sql = "DELETE FROM `mclass` WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }    
+
+//remove Exam
+    public boolean removeExams(String id) {
+       
+ String sql = "DELETE FROM `exam` WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }    
+
+    public boolean removePayments(String id) {
+   String sql = "DELETE FROM `payments` WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public boolean removeFees(String id) {
+    String sql = "DELETE FROM `fees` WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+  
+
+   
 }

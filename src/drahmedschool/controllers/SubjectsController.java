@@ -7,7 +7,6 @@ package drahmedschool.controllers;
 
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
-import drahmedschool.db.models.Assignments;
 import drahmedschool.db.models.Subjects;
 import drahmedschool.db.models.Teachers;
 import java.io.IOException;
@@ -63,13 +62,13 @@ public class SubjectsController implements Initializable {
         getSubjects();
     }    
 
-    @FXML
+      @FXML
     private void addNew(ActionEvent event) {
              Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Newsubject.fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(AssignmentsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SubjectsController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         Scene scene = new Scene(root);
@@ -168,5 +167,9 @@ public class SubjectsController implements Initializable {
         };
         return cell;
     };
+
+   
+
+    
     
 }

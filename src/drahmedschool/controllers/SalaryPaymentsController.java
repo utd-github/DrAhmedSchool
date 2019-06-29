@@ -7,8 +7,7 @@ package drahmedschool.controllers;
 
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
-import drahmedschool.db.models.Students;
-import drahmedschool.db.models.Teachers;
+import drahmedschool.db.models.Payments;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -40,45 +39,46 @@ import javafx.util.Callback;
  *
  * @author Mohamed Jiingad
  */
-public class StudentsController implements Initializable {
+public class SalaryPaymentsController implements Initializable {
 
     @FXML
-    private TableView<Students> studentsTable;
+    private TableView<Payments> paymentsTable;
     @FXML
-    private TableColumn<Students, String> nocolumn;
+    private TableColumn<Payments, String> nocolumn;
     @FXML
-    private TableColumn<Students, String> stdname;
+    private TableColumn<Payments, String> actionsColumn;
     @FXML
-    private TableColumn<Students, String> stdphone;
+    private TableColumn<Payments, String> payto;
     @FXML
-    private TableColumn<Students, String> stdemail;
+    private TableColumn<Payments, String> amount;
     @FXML
-    private TableColumn<Students, String> stdcyear;
+    private TableColumn<Payments, String> type;
     @FXML
-    private TableColumn<Students, String> actionsColumn;
+    private TableColumn<Payments, String> pdate;
+
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        getStudents();
-    }
+        getPayments();
+    }    
 
     @FXML
-    private void addNew(ActionEvent event) {
-        Parent root = null;
+    private void AddNew(ActionEvent event) {
+ 
+         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Newstudent.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/NewSalaryPayment.fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(StudentsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TeacherController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         Scene scene = new Scene(root);
-        Stage stage = new Stage();
+        Stage stage= new Stage();
         stage.setScene(scene);
-
+        
 //        Stage properties
         stage.setTitle("Dr Ahmed School");
         stage.setResizable(false);
@@ -86,67 +86,66 @@ public class StudentsController implements Initializable {
         stage.centerOnScreen();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
           stage.setOnHidden(e -> {
-            getStudents();
+           getPayments();
         });
         stage.show();
     }
-
-    public void getStudents() {
-        ObservableList<Students> Obs = FXCollections.observableArrayList();
+    
+ private void getPayments() {
+   
+         ObservableList<Payments> Obs = FXCollections.observableArrayList();
         dbActions action = new dbActions(dbConnection.dbConnect());
         ResultSet rs;
-        rs = action.getStudent();
+        rs = action.getPayments();
         try {
             int no = 0;
             while (rs.next()) {
                 no++;
-                Obs.add(new Students(
+                Obs.add(new Payments(
                         Integer.toString(no),
                         rs.getString("id"),
-                        rs.getString("name"),
-                        rs.getString("phone"),
-                        rs.getString("gender"),
-                        rs.getString("sub_date"),
-                        rs.getString("year"),
-                        rs.getString("dob"),
-                        rs.getString("email")
+                        rs.getString("type"),
+                        rs.getString("payto"),
+                        rs.getString("amount"),
+                        rs.getString("fdate")
                 ));
             }
-            initStudentsTable(Obs);
+            initpaymentsTable(Obs);
 
         } catch (SQLException ex) {
-            Logger.getLogger(StudentsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SalaryPaymentsController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    private void initStudentsTable(ObservableList<Students> Obs) {
+            //Model
+    private void initpaymentsTable(ObservableList<Payments> Obs) {
         nocolumn.setCellValueFactory(new PropertyValueFactory<>("no"));
-        stdname.setCellValueFactory(new PropertyValueFactory<>("name"));
-        stdphone.setCellValueFactory(new PropertyValueFactory<>("phone"));
-        stdemail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        stdcyear.setCellValueFactory(new PropertyValueFactory<>("year"));
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        payto.setCellValueFactory(new PropertyValueFactory<>("payto"));
+        pdate.setCellValueFactory(new PropertyValueFactory<>("date"));   
+        amount.setCellValueFactory(new PropertyValueFactory<>("Amount"));
+
         actionsColumn.setCellFactory(cellFactory);
-         
-        studentsTable.setItems(Obs);
+
+        paymentsTable.setItems(Obs);
 
     }
-
-      public void removeStudents(String id) {
+    
+ public void removePayments(String id) {
         dbActions action = new dbActions(dbConnection.dbConnect());
 
-        if (action.removeStudents(id)) {
-            getStudents();
+        if (action.removePayments(id)) {
+            getPayments();
         } else {
             System.out.print("Error Accured while removing");
         }
     }
-    
-    Callback<TableColumn<Students, String>, TableCell<Students, String>> cellFactory = (final TableColumn<Students, String> param) -> {
-        final TableCell<Students, String> cell = new TableCell<Students, String>() {
+     Callback<TableColumn<Payments, String>, TableCell<Payments, String>> cellFactory = (final TableColumn<Payments, String> param) -> {
+      
+         final TableCell<Payments, String> cell = new TableCell<Payments, String>() {
 
             final Button rbtn = new Button("Remove");
             final Button ebtn = new Button("Edit");
-            
+
             final HBox con = new HBox();
             
             @Override
@@ -161,24 +160,22 @@ public class StudentsController implements Initializable {
                     rbtn.getStyleClass().add("flatbutton");
                     ebtn.getStyleClass().add("flatbutton");
                     con.getChildren().addAll(rbtn, ebtn);
-              
+
                     rbtn.setOnAction(event -> {
-                        System.out.println("Deleting!");
-                         Students student = getTableView().getItems().get(getIndex());
-                        removeStudents(student.getId());
+                         Payments Payments = getTableView().getItems().get(getIndex());
+                        removePayments(Payments.getId()); 
+                        System.out.println("Deleting ");
                     });
-                      ebtn.setOnAction(event -> {
+
+                    ebtn.setOnAction(event -> {
                         System.out.println("Editintg");
                     });
                     setGraphic(con);
                     setText(null);
-                    
                 }
             }
         };
         return cell;
     };
-
-    
     
 }

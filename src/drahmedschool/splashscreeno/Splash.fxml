@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="parent" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #6c5ce7;" stylesheets="@../assets/css/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drahmedschool.splashscreeno.SplashController">
+   <children>
+      <Label layoutX="232.0" layoutY="157.0" text="Welcome" textFill="#fcfcfc">
+         <font>
+            <Font name="Segoe UI Black" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="268.0" layoutY="207.0" text="Loading..." textAlignment="CENTER" textFill="#f8f6f6">
+         <font>
+            <Font name="Consolas Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="20.0" fitWidth="30.0" layoutX="576.0" layoutY="4.0" onMouseClicked="#close_app" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/xclose.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -50,3 +50,8 @@ and open the template in the editor.
 .table-view .column-header-background .filler {
     -fx-background-color:  white;
 }
+
+.tab-pane *.tab-header-background {
+    -fx-background-color: white;
+    
+}

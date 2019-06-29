@@ -22,12 +22,22 @@
                   <Font size="15.0" />
                </font>
             </JFXTextField>
+            <JFXTextField fx:id="tid" prefHeight="39.0" prefWidth="291.0" promptText="Teacher Id">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="subid" prefHeight="39.0" prefWidth="291.0" promptText="Subject Id">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
             <JFXTextField fx:id="croom" prefHeight="39.0" prefWidth="291.0" promptText="Room">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="cyear" prefHeight="39.0" prefWidth="291.0" promptText="Year">
+            <JFXTextField fx:id="des" prefHeight="39.0" prefWidth="291.0" promptText="Description">
                <font>
                   <Font size="15.0" />
                </font>
@@ -48,7 +58,7 @@
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Classes Form">
                <font>
-                  <Font size="14.0" />
+                  <Font size="15.0" />
                </font>
             </Text>
          </children>

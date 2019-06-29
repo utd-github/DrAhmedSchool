@@ -8,21 +8,30 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="500.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drahmedschool.controllers.NewsubjectController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="500.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drahmedschool.controllers.NewStudentsFeesController">
    <stylesheets>
       <URL value="@/drahmedschool/assets/css/Main.css" />
    </stylesheets>
    <children>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="162.0" layoutY="71.0" prefHeight="273.0" prefWidth="500.0" spacing="15.0" AnchorPane.bottomAnchor="176.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+      <VBox alignment="CENTER" fillWidth="false" layoutX="162.0" layoutY="71.0" prefHeight="273.0" prefWidth="500.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
          <children>
-            <JFXTextField fx:id="sname" prefHeight="39.0" prefWidth="291.0" promptText="Class Name">
+            <JFXTextField fx:id="ffrom" prefHeight="39.0" prefWidth="291.0" promptText="From">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="sdes" prefHeight="39.0" prefWidth="291.0" promptText="Description">
+            <JFXTextField fx:id="amount" prefHeight="39.0" prefWidth="291.0" promptText="Amount">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="ftype" prefHeight="39.0" prefWidth="291.0" promptText="Type">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="fdate" prefHeight="39.0" prefWidth="291.0" promptText="Date">
                <font>
                   <Font size="15.0" />
                </font>
@@ -39,14 +48,7 @@
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <HBox alignment="CENTER_LEFT" layoutX="24.0" layoutY="17.0" prefHeight="76.0" prefWidth="415.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Subjects Form">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-         </children>
+      <HBox alignment="CENTER_LEFT" layoutX="24.0" layoutY="17.0" prefHeight="76.0" prefWidth="455.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <padding>
             <Insets left="10.0" />
          </padding>

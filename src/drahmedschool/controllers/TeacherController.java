@@ -70,7 +70,7 @@ public class TeacherController implements Initializable {
         try {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Newteacher.fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(AssignmentsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TeacherController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         Scene scene = new Scene(root);
@@ -138,7 +138,8 @@ public class TeacherController implements Initializable {
         }
     }
      Callback<TableColumn<Teachers, String>, TableCell<Teachers, String>> cellFactory = (final TableColumn<Teachers, String> param) -> {
-        final TableCell<Teachers, String> cell = new TableCell<Teachers, String>() {
+      
+         final TableCell<Teachers, String> cell = new TableCell<Teachers, String>() {
 
             final Button rbtn = new Button("Remove");
             final Button ebtn = new Button("Edit");

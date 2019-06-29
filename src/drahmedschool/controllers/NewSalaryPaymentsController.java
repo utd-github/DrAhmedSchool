@@ -21,16 +21,16 @@ import javafx.scene.control.Alert;
  *
  * @author Mohamed Jiingad
  */
-public class NeweventController implements Initializable {
+public class NewSalaryPaymentsController implements Initializable {
 
     @FXML
-    private JFXTextField eTitle;
+    private JFXTextField fto;
     @FXML
-    private JFXTextField eLocation;
+    private JFXTextField famount;
     @FXML
-    private JFXTextField eDate;
+    private JFXTextField ftype;
     @FXML
-    private JFXTextField EDes;
+    private JFXTextField fdate;
 
     /**
      * Initializes the controller class.
@@ -42,16 +42,16 @@ public class NeweventController implements Initializable {
 
     @FXML
     private void submitForm(ActionEvent event) {
-        dbActions action = new dbActions(dbConnection.dbConnect());
+          dbActions action = new dbActions(dbConnection.dbConnect());
+         
+          if(checkFields()){
+        String type = ftype.getText();
+        String payto = fto.getText();
+        String amount = famount.getText();
+        String kdate = fdate.getText();
         
-        if(checkFields()){
-        String name = eTitle.getText();
-        String phone = eLocation.getText();
-        String year = eDate.getText();
-        String subdate = EDes.getText();
         
-        
-        if(action.AddEvents(phone, subdate, subdate, year)){
+        if(action.AddPayments(type, payto, amount,kdate)){ 
             System.out.print("Inserted");
             ((Node) (event.getSource())).getScene().getWindow().hide();
         }else{
@@ -71,10 +71,12 @@ public class NeweventController implements Initializable {
     }
 
     private boolean checkFields() {
-     return !"".equals(eTitle.getText().trim())&&!"".equals(eLocation.getText().trim())
-             &&!"".equals(eDate.getText().trim())
-             &&!"".equals(EDes.getText().trim());
+     return !"".equals(ftype.getText().trim())
+             &&!"".equals(fto.getText().trim())
+             &&!"".equals(famount.getText().trim())             
+             &&!"".equals(fdate.getText().trim());
     }
+    
     
     
     
