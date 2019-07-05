@@ -38,12 +38,12 @@
             </JFXTextField>
          </children>
       </VBox>
-      <JFXButton cancelButton="true" layoutX="327.0" layoutY="349.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
+      <JFXButton cancelButton="true" layoutX="327.0" layoutY="349.0" onAction="#cancelForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton defaultButton="true" layoutX="411.0" layoutY="349.0" onAction="#submitForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
+      <JFXButton fx:id="submit" defaultButton="true" layoutX="411.0" layoutY="349.0" onAction="#submitForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -53,5 +53,10 @@
             <Insets left="10.0" />
          </padding>
       </HBox>
+      <JFXButton fx:id="update" cancelButton="true" layoutX="241.0" layoutY="349.0" onAction="#updateForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #192a56;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

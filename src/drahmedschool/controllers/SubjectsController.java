@@ -8,7 +8,7 @@ package drahmedschool.controllers;
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
 import drahmedschool.db.models.Subjects;
-import drahmedschool.db.models.Teachers;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -52,6 +52,8 @@ public class SubjectsController implements Initializable {
     private TableColumn<Subjects, String> sdes;
     @FXML
     private TableColumn<Subjects, String> actionsColumn;
+    
+ 
 
     /**
      * Initializes the controller class.
@@ -121,6 +123,7 @@ public class SubjectsController implements Initializable {
         subjetsTable.setItems(Obs);
 
     }
+    
      public void removeSubjects(String id) {
         dbActions action = new dbActions(dbConnection.dbConnect());
 
@@ -130,6 +133,39 @@ public class SubjectsController implements Initializable {
             System.out.print("Error Accured while removing");
         }
     }
+     
+      //Edit exam
+    private void editSubjects(Subjects subjects) {
+        FXMLLoader loader = null;
+        Parent root = null;
+        try {
+            loader = new FXMLLoader(getClass().getClassLoader().getResource("drahmedschool/views/Newsubject.fxml"));
+            root = (Parent)loader.load();
+
+            NewsubjectController con = loader.<NewsubjectController>getController();
+            con.setEdit(subjects);
+        } catch (IOException ex) {
+            Logger.getLogger(SubjectsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+
+//        Stage properties
+        stage.setTitle("Dr Ahmed School");
+        stage.setResizable(false);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.centerOnScreen();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
+        stage.setOnHidden(e -> {
+            getSubjects();
+        });
+        stage.show();
+
+    }
+    
+     
     Callback<TableColumn<Subjects, String>, TableCell<Subjects, String>> cellFactory = (final TableColumn<Subjects, String> param) -> {
         final TableCell<Subjects, String> cell = new TableCell<Subjects, String>() {
 
@@ -158,12 +194,17 @@ public class SubjectsController implements Initializable {
                     });
 
                     ebtn.setOnAction(event -> {
-                        System.out.println("Editintg");
+                        
+                        Subjects subjects = getTableView().getItems().get(getIndex());
+
+                        editSubjects(subjects);
                     });
                     setGraphic(con);
                     setText(null);
                 }
             }
+
+           
         };
         return cell;
     };

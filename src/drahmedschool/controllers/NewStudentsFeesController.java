@@ -5,9 +5,12 @@
  */
 package drahmedschool.controllers;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
+import drahmedschool.db.models.Fees;
+import drahmedschool.db.models.Payments;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -23,6 +26,8 @@ import javafx.scene.control.Alert;
  */
 public class NewStudentsFeesController implements Initializable {
 
+    Fees fees;
+    
     @FXML
     private JFXTextField ffrom;
     @FXML
@@ -31,15 +36,33 @@ public class NewStudentsFeesController implements Initializable {
     private JFXTextField ftype;
     @FXML
     private JFXTextField fdate;
+    @FXML
+    private JFXButton update;
+    @FXML
+    private JFXButton submit;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // update hide
+        update.setVisible(false);
     }    
 
+      public  void setEdit(Fees pfees) {
+          //submit hide
+        submit.setVisible(false);
+        update.setVisible(true);
+
+        fees = pfees;
+        ffrom.setText(pfees.getPayfrom());
+        amount.setText(pfees.getAmount());
+        ftype.setText(pfees.getType());
+        fdate.setText(pfees.getFdate());
+          
+    }
+    
     @FXML
     private void submitForm(ActionEvent event) {
         dbActions action = new dbActions(dbConnection.dbConnect());
@@ -76,6 +99,45 @@ public class NewStudentsFeesController implements Initializable {
              &&!"".equals(amount.getText().trim())             
              &&!"".equals(fdate.getText().trim());
     }
+
+    @FXML
+    private void updateForm(ActionEvent event) {
+         dbActions action = new dbActions(dbConnection.dbConnect());
+
+        if (checkFields()) {
+            String etype = ftype.getText();
+            String sfrom = ffrom.getText();
+            String famount = amount.getText();
+            String kdates = fdate.getText();
+
+            if (action.updateFees(fees.getId(), etype, sfrom, famount, kdates)) {
+                System.out.print("updated");
+                ((Node) (event.getSource())).getScene().getWindow().hide();
+            } else {
+                System.out.print("Not updated");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Errror accured");
+                alert.setContentText("Error updating data");
+                alert.show();
+            }
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Errror accured");
+            alert.setContentText("Please fill all fields");
+            alert.show();
+        }
+
+    }
+
+    @FXML
+    private void cancelForm(ActionEvent event) {
+        //
+    }
+
+ 
+
+
     
     
     

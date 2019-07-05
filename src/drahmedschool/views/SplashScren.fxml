@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drahmedschool.controllers.SplashScrenController">
+   <children>
+      <ProgressIndicator fx:id="l1" layoutX="287.0" layoutY="180.0" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="261.0" AnchorPane.topAnchor="180.0" />
+      <Label fx:id="lbl" layoutX="292.0" layoutY="255.0" text="Loading" />
+   </children>
+</AnchorPane>

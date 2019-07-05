@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -61,11 +61,11 @@ public class ExamController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         getExams();
-    }    
+    }
 
     @FXML
     private void addNew(ActionEvent event) {
-              Parent root = null;
+        Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Newexam.fxml"));
         } catch (IOException ex) {
@@ -73,16 +73,16 @@ public class ExamController implements Initializable {
         }
 
         Scene scene = new Scene(root);
-        Stage stage= new Stage();
+        Stage stage = new Stage();
         stage.setScene(scene);
-        
+
 //        Stage properties
         stage.setTitle("Dr Ahmed School");
         stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.centerOnScreen();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
-       stage.setOnHidden(e -> {
+        stage.setOnHidden(e -> {
             getExams();
         });
         stage.show();
@@ -90,7 +90,7 @@ public class ExamController implements Initializable {
     }
 
     private void getExams() {
-    
+
         ObservableList<Exams> Obs = FXCollections.observableArrayList();
         dbActions action = new dbActions(dbConnection.dbConnect());
         ResultSet rs;
@@ -120,17 +120,18 @@ public class ExamController implements Initializable {
     private void initexamsTable(ObservableList<Exams> Obs) {
 
         //Model
-         nocolumn.setCellValueFactory(new PropertyValueFactory<>("no"));
+        nocolumn.setCellValueFactory(new PropertyValueFactory<>("no"));
         type.setCellValueFactory(new PropertyValueFactory<>("type"));
         edate.setCellValueFactory(new PropertyValueFactory<>("edate"));
         des.setCellValueFactory(new PropertyValueFactory<>("memo"));
-        
-         actionscolumn.setCellFactory(cellFactory);
+
+        actionscolumn.setCellFactory(cellFactory);
 
         examsTable.setItems(Obs);
- 
+
     }
- public void removeExams(String id) {
+
+    public void removeExams(String id) {
         dbActions action = new dbActions(dbConnection.dbConnect());
 
         if (action.removeExams(id)) {
@@ -138,17 +139,48 @@ public class ExamController implements Initializable {
         } else {
             System.out.print("Error Accured while removing");
         }
- }
- 
- Callback<TableColumn<Exams, String>, TableCell<Exams, String>> cellFactory = (final TableColumn<Exams, String> param) -> {
-      
-         final TableCell<Exams, String> cell = new TableCell<Exams, String>() {
+    }
+
+    //Edit exam
+    public void editexam(Exams exam) {
+        FXMLLoader loader = null;
+        Parent root = null;
+        try {
+            loader = new FXMLLoader(getClass().getClassLoader().getResource("drahmedschool/views/Newexam.fxml"));
+            root = (Parent)loader.load();
+
+            NewexamController con = loader.<NewexamController>getController();
+            con.setEdit(exam);
+        } catch (IOException ex) {
+            Logger.getLogger(ExamController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+
+//        Stage properties
+        stage.setTitle("Dr Ahmed School");
+        stage.setResizable(false);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.centerOnScreen();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
+        stage.setOnHidden(e -> {
+            getExams();
+        });
+        stage.show();
+
+    }
+    
+    Callback<TableColumn<Exams, String>, TableCell<Exams, String>> cellFactory = (final TableColumn<Exams, String> param) -> {
+
+        final TableCell<Exams, String> cell = new TableCell<Exams, String>() {
 
             final Button rbtn = new Button("Remove");
             final Button ebtn = new Button("Edit");
 
             final HBox con = new HBox();
-            
+
             @Override
             public void updateItem(String item, boolean empty) {
                 super.updateItem(item, empty);
@@ -163,18 +195,21 @@ public class ExamController implements Initializable {
                     con.getChildren().addAll(rbtn, ebtn);
 
                     rbtn.setOnAction(event -> {
-                       Exams Exams = getTableView().getItems().get(getIndex());
-                        removeExams(Exams.getId()); 
+                        Exams exam = getTableView().getItems().get(getIndex());
+                        removeExams(exam.getId());
                         System.out.println("Deleting ");
                     });
 
                     ebtn.setOnAction(event -> {
-                        System.out.println("Editintg");
+                        Exams exam = getTableView().getItems().get(getIndex());
+
+                        editexam(exam);
                     });
                     setGraphic(con);
                     setText(null);
                 }
             }
+
         };
         return cell;
     };

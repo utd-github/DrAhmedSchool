@@ -86,8 +86,46 @@ public class dbActions {
         return null;
 
     }
+    
+   // Add User
+    public boolean AddMussers(String name, String email, String pass) {
 
-    // Add Subject
+        String sql = "INSERT INTO `users`( `name`, `email`, `password`)"
+                + " VALUES ("
+                + "'" + name + "',"
+                + "'" + email + "',"
+                + "'" + pass + "'"
+                + ")";
+        Statement st;
+        try {
+            st = con.createStatement();
+            st.execute(sql);
+            return true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.print("Error Accured: " + ex.getMessage());
+        }
+
+        return false;
+    }
+
+      //Get Users
+    public ResultSet getMusers() {
+        String sql = "SELECT * FROM `users`";
+        Statement st;
+        try {
+            st = con.createStatement();
+            return st.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    
+    
+ // Add Subject
     public boolean AddSubject(String name, String des) {
 
         String sql = "INSERT INTO `subjects`( `name`, `des`)"
@@ -265,7 +303,8 @@ public class dbActions {
         return false;
         
     }
-    //Get Classes
+    
+//Get Classes
     public ResultSet getMclass() {
 
         String sql = "SELECT * FROM `mclass`";
@@ -304,7 +343,8 @@ public class dbActions {
         return false;
         
     }
-    //Get Exams
+    
+//Get Exams
     public ResultSet getExams() {
         String sql = "SELECT * FROM `exam`";
         Statement st;
@@ -331,7 +371,9 @@ public class dbActions {
             }
         }
     }
-    //remove Teachers
+  
+    
+//remove Teachers
     public boolean removeTeachers(String id) {
         String sql = "DELETE FROM `teacher` WHERE id='" + id + "';";
         Statement stmt;
@@ -345,6 +387,22 @@ public class dbActions {
         }
         return false;
     }
+    
+        //remove Users
+        public boolean removeMusers(String id) {
+             String sql = "DELETE FROM `users` WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+         }
+    
         //remove Subjects
     public boolean removeSubjects(String id) {
         String sql = "DELETE FROM `subjects` WHERE id='" + id + "';";
@@ -359,6 +417,7 @@ public class dbActions {
         }
         return false;
     }
+    
        //remove Students
        public boolean removeStudents(String id) {
         String sql = "DELETE FROM `students` WHERE id='" + id + "';";
@@ -373,6 +432,7 @@ public class dbActions {
         }
         return false;
     }
+       
 //remove class
     public boolean removeMclass(String id) {
        
@@ -403,8 +463,9 @@ public class dbActions {
             Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
-    }    
-
+    }   
+    
+    //remove payments
     public boolean removePayments(String id) {
    String sql = "DELETE FROM `payments` WHERE id='" + id + "';";
         Statement stmt;
@@ -418,7 +479,8 @@ public class dbActions {
         }
         return false;
     }
-
+    
+    //remove fees
     public boolean removeFees(String id) {
     String sql = "DELETE FROM `fees` WHERE id='" + id + "';";
         Statement stmt;
@@ -432,7 +494,142 @@ public class dbActions {
         }
         return false;
     }
-  
+    
+    //Upadte Students
+    public boolean updateStudents(String id, String name,String email,String phone,String rollno,String year,String gender,String dob,String sub_date)
+    {
+    String sql = "Update students Set name='" + name + "', phone='" + phone + "', email='" + email + "',rollno='" + rollno + "', dob='" + dob + "', year='" + year + "', gender='" + gender + "', sub_date='" + sub_date + "' WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+      
+    
+        //Upadte Teachers
+    public boolean updateTeachers(String id, String name,String email,String phone,String jdate,String des)
+    {
+    String sql = "Update teacher Set name='" + name + "', phone='" + phone + "', email='" + email + "', jdate='" + jdate + "', des='" + des + "' WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    
+       //Upadte Exams
+    public boolean updateExams(String id, String type,String eclass, String sid, String edate, String memo) {
+    
+    String sql = "Update exam Set type='" + type + "', eclass='" + eclass + "', sid='" + sid + "',memo='" + memo + "' WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    
+      //Upadte Class
+     public boolean updateMclass(String id, String name,String tid, String subid, String room, String des) {
+    
+    String sql = "Update mclass Set name='" + name + "', tid='" + tid + "', subid='" + subid + "',room='" + room + "', des='" + des + "' WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    
+    //Upadte Payments
+    public boolean updatePayments(String id, String type, String Amount, String payto, String fdate) {
+    
+    String sql = "Update payments Set type='" + type + "', Amount='" + Amount + "',payto='" + payto + "', fdate='" + fdate + "' WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    
+    
 
+
+
+
+  
+        //Subjects
+    public boolean updateSubjcts(String id, String sname, String sdes) {
+    String sql = "Update subjects Set name='" + sname + "', des='" + sdes + "' WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;}
+
+     //Upadte Users
+    public boolean updateMusers(String id, String name,String email, String password) {
+     String sql = "Update users Set name='" + name + "', email='" + email + "', password='" + password + "' WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    //Upadte Fees
+    public boolean updateFees(String id, String type, String Amount, String payfrom, String fdate) {
+    
+    String sql = "Update fees Set type='" + type + "', Amount='" + Amount + "',payfrom='" + payfrom + "', fdate='" + fdate + "' WHERE id='" + id + "';";
+        Statement stmt;
+        ResultSet rs;
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
    
 }

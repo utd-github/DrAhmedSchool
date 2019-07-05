@@ -8,7 +8,7 @@ package drahmedschool.controllers;
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
 import drahmedschool.db.models.Mclass;
-import drahmedschool.db.models.Teachers;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -134,6 +134,7 @@ public class MclassesController implements Initializable {
         classTable.setItems(Obs);
  
     }
+    
  public void removeMclass(String id) {
         dbActions action = new dbActions(dbConnection.dbConnect());
 
@@ -172,13 +173,44 @@ public class MclassesController implements Initializable {
                         System.out.println("Deleting ");
                     });
 
-                    ebtn.setOnAction(event -> {
-                        System.out.println("Editintg");
+                    ebtn.setOnAction(event -> {  
+                      Mclass mclass = getTableView().getItems().get(getIndex());
+
+                        editMclass(mclass);
                     });
                     setGraphic(con);
                     setText(null);
                 }
             }
+
+             
+     private void editMclass(Mclass mclass) {
+              FXMLLoader loader = null;
+        Parent root = null;
+        try {
+            loader = new FXMLLoader(getClass().getClassLoader().getResource("drahmedschool/views/Newclass.fxml"));
+            root = (Parent)loader.load();
+
+            NewclassController con = loader.<NewclassController>getController();
+            con.setEdit(mclass);
+        } catch (IOException ex) {
+            Logger.getLogger(MclassesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+
+//        Stage properties
+        stage.setTitle("Dr Ahmed School");
+        stage.setResizable(false);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.centerOnScreen();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
+        stage.setOnHidden(e -> {
+            getMclass();
+        });
+        stage.show();}
         };
         return cell;
     };

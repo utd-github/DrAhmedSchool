@@ -15,7 +15,7 @@
       <URL value="@/drahmedschool/assets/css/Main.css" />
    </stylesheets>
    <children>
-      <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="162.0" layoutY="71.0" prefHeight="257.0" prefWidth="424.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="75.0">
+      <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="88.0" layoutY="80.0" prefHeight="340.0" prefWidth="524.0" spacing="15.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="88.0" AnchorPane.topAnchor="80.0">
          <children>
             <JFXTextField fx:id="tname" prefHeight="39.0" prefWidth="284.0" promptText="Full Name">
                <font>
@@ -32,20 +32,6 @@
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-         </children>
-      </VBox>
-      <JFXButton cancelButton="true" layoutX="527.0" layoutY="449.0" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </JFXButton>
-      <JFXButton defaultButton="true" layoutX="611.0" layoutY="449.0" onAction="#submitForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </JFXButton>
-      <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="315.0" layoutY="98.0" prefHeight="143.0" prefWidth="350.0" spacing="15.0" AnchorPane.bottomAnchor="259.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="98.0">
-         <children>
             <JFXTextField fx:id="temail" prefHeight="39.0" prefWidth="291.0" promptText="Email">
                <font>
                   <Font size="15.0" />
@@ -58,11 +44,21 @@
             </JFXTextField>
          </children>
       </VBox>
+      <JFXButton cancelButton="true" layoutX="527.0" layoutY="449.0" onAction="#cancelForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="submit" defaultButton="true" layoutX="611.0" layoutY="449.0" onAction="#submitForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
       <HBox alignment="CENTER_LEFT" layoutX="24.0" layoutY="17.0" prefHeight="76.0" prefWidth="700.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Teachers Form">
                <font>
-                  <Font size="15.0" />
+                  <Font size="25.0" />
                </font>
             </Text>
          </children>
@@ -70,5 +66,10 @@
             <Insets left="10.0" />
          </padding>
       </HBox>
+      <JFXButton fx:id="upadte" layoutX="443.0" layoutY="449.0" onAction="#updateForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #192a56;" text="Upadte" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

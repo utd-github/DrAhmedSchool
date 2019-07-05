@@ -74,17 +74,18 @@ public class MainViewController implements Initializable {
     }
     
     
+    @FXML
     private void showSettings(ActionEvent event) {
-         loadContainerUI("Settings");
+         loadContainerUI("Managements");
     }
    
 
-   @FXML
+    
     private void showSalary(ActionEvent event) {
          loadContainerUI("Salary"); 
     }
+   
     
-       @FXML
     private void showPayments(ActionEvent event) {
          loadContainerUI("Payments"); 
     }

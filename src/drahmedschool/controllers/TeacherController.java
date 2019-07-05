@@ -137,6 +137,39 @@ public class TeacherController implements Initializable {
             System.out.print("Error Accured while removing");
         }
     }
+ 
+ 
+             //Edit Teachers
+     public void editteacher(Teachers teachers) {
+              FXMLLoader loader = null;
+        Parent root = null;
+        try {
+            loader = new FXMLLoader(getClass().getClassLoader().getResource("drahmedschool/views/Newteacher.fxml"));
+            root = (Parent)loader.load();
+
+            NewteacherController con = loader.<NewteacherController>getController();
+            con.setEdit(teachers);
+        } catch (IOException ex) {
+            Logger.getLogger(TeacherController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+
+//        Stage properties
+        stage.setTitle("Dr Ahmed School");
+        stage.setResizable(false);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.centerOnScreen();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
+        stage.setOnHidden(e -> {
+            getTeachers();
+        });
+        stage.show();
+
+             }
+ 
      Callback<TableColumn<Teachers, String>, TableCell<Teachers, String>> cellFactory = (final TableColumn<Teachers, String> param) -> {
       
          final TableCell<Teachers, String> cell = new TableCell<Teachers, String>() {
@@ -166,12 +199,16 @@ public class TeacherController implements Initializable {
                     });
 
                     ebtn.setOnAction(event -> {
-                        System.out.println("Editintg");
+                        
+                         Teachers teachers = getTableView().getItems().get(getIndex());
+
+                        editteacher(teachers);
                     });
                     setGraphic(con);
                     setText(null);
                 }
             }
+
         };
         return cell;
     };

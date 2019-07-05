@@ -201,6 +201,30 @@
                   </HBox>
                </graphic>
             </JFXButton>
+            <JFXButton onAction="#showSettings" ripplerFill="#6927ff" styleClass="sidebuttons" stylesheets="@../assets/css/Main.css">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../assets/images/cog.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Management" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+               </graphic>
+            </JFXButton>
          </children>
          <padding>
             <Insets top="20.0" />

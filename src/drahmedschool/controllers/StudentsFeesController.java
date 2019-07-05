@@ -139,13 +139,44 @@ public class StudentsFeesController implements Initializable {
             System.out.print("Error Accured while removing");
         }
     }
+ 
+   private void editfees(Fees fees) {
+           FXMLLoader loader = null;
+        Parent root = null;
+        try {
+            loader = new FXMLLoader(getClass().getClassLoader().getResource("drahmedschool/views/NewStudentsFees.fxml"));
+            root = (Parent)loader.load();
+
+            NewStudentsFeesController con = loader.<NewStudentsFeesController>getController();
+            con.setEdit(fees);
+        } catch (IOException ex) {
+            Logger.getLogger(StudentsFeesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+
+//        Stage properties
+        stage.setTitle("Dr Ahmed School");
+        stage.setResizable(false);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.centerOnScreen();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
+        stage.setOnHidden(e -> {
+            getFees();
+        });
+        stage.show();
+ 
+   }
+ 
      Callback<TableColumn<Fees, String>, TableCell<Fees, String>> cellFactory = (final TableColumn<Fees, String> param) -> {
       
          final TableCell<Fees, String> cell = new TableCell<Fees, String>() {
 
             final Button rbtn = new Button("Remove");
             final Button ebtn = new Button("Edit");
-
+            
             final HBox con = new HBox();
             
             @Override
@@ -159,6 +190,7 @@ public class StudentsFeesController implements Initializable {
                     con.setSpacing(5.0);
                     rbtn.getStyleClass().add("flatbutton");
                     ebtn.getStyleClass().add("flatbutton");
+                   
                     con.getChildren().addAll(rbtn, ebtn);
 
                     rbtn.setOnAction(event -> {
@@ -168,12 +200,19 @@ public class StudentsFeesController implements Initializable {
                     });
 
                     ebtn.setOnAction(event -> {
-                        System.out.println("Editintg");
+                         Fees fees = getTableView().getItems().get(getIndex());
+
+                        editfees(fees);
                     });
+                    
+                    
+                    
                     setGraphic(con);
                     setText(null);
                 }
             }
+
+           
         };
         return cell;
     };

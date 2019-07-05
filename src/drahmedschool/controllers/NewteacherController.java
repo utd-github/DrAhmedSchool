@@ -5,9 +5,11 @@
  */
 package drahmedschool.controllers;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
+import drahmedschool.db.models.Teachers;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -23,6 +25,7 @@ import javafx.scene.control.Alert;
  */
 public class NewteacherController implements Initializable {
 
+    Teachers teachers;
     @FXML
     private JFXTextField tname;
     @FXML
@@ -34,6 +37,10 @@ public class NewteacherController implements Initializable {
     private JFXTextField tjdate;
     @FXML
     private JFXTextField tdes;
+    @FXML
+    private JFXButton submit;
+    @FXML
+    private JFXButton upadte;
    
 
     /**
@@ -41,9 +48,26 @@ public class NewteacherController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       upadte.setVisible(false);
     }    
 
+      //setEdit exam
+    public void setEdit(Teachers pteachers) {
+        
+        //submit hide
+        submit.setVisible(false);
+        upadte.setVisible(true);
+
+        teachers = pteachers;
+        tname.setText(pteachers.getName());
+        tphone.setText(pteachers.getPhone());
+        temail.setText(pteachers.getEmail());
+        tjdate.setText(pteachers.getJdate());
+        tdes.setText(pteachers.getDes());
+
+    }
+
+    
     @FXML
     private void submitForm(ActionEvent event) {
          dbActions action = new dbActions(dbConnection.dbConnect());
@@ -82,7 +106,44 @@ public class NewteacherController implements Initializable {
              &&!"".equals(tjdate.getText().trim())
              &&!"".equals(tdes.getText().trim());
     }
+
+    @FXML
+    private void updateForm(ActionEvent event) {
+      dbActions action = new dbActions(dbConnection.dbConnect());
+
+        if (checkFields()) {
+            String name = tname.getText();
+            String phone = tphone.getText();
+            String email = temail.getText();
+            String tdate = tjdate.getText();
+            String des = tdes.getText();
+
+            if (action.updateTeachers(teachers.getId(), name, phone, email, tdate, des)) {
+                System.out.print("updated");
+                ((Node) (event.getSource())).getScene().getWindow().hide();
+            } else {
+                System.out.print("Not updated");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Errror accured");
+                alert.setContentText("Error updating data");
+                alert.show();
+            }
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Errror accured");
+            alert.setContentText("Please fill all fields");
+            alert.show();
+        }
+
+    }
+
+    @FXML
+    private void cancelForm(ActionEvent event) {
+        //
+    }
+
     
     
     
-}
+    }

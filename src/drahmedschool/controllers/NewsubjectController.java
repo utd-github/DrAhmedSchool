@@ -9,6 +9,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
+import drahmedschool.db.models.Mclass;
+import drahmedschool.db.models.Subjects;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -24,11 +26,15 @@ import javafx.scene.control.Alert;
  */
 public class NewsubjectController implements Initializable {
 
-  
+    Subjects subjects;
     @FXML
     private JFXTextField sname;
     @FXML
     private JFXTextField sdes;
+    @FXML
+    private JFXButton submit;
+    @FXML
+    private JFXButton Update;
     
 
     /**
@@ -36,9 +42,22 @@ public class NewsubjectController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // update hide
+        Update.setVisible(false);
     }    
 
+       //setEdit exam
+    public void setEdit(Subjects psubjects) {
+        
+        //submit hide
+        submit.setVisible(false);
+        Update.setVisible(true);
+
+        subjects = psubjects;
+        sname.setText(psubjects.getName());
+        sdes.setText(psubjects.getDes());
+    }
+    
     @FXML
     private void submitForm(ActionEvent event) {
     dbActions action = new dbActions(dbConnection.dbConnect());
@@ -72,4 +91,44 @@ public class NewsubjectController implements Initializable {
      return !"".equals(sname.getText().trim())
              &&!"".equals(sdes.getText().trim());
     }
+
+    @FXML
+    private void updateForm(ActionEvent event) {
+         dbActions action = new dbActions(dbConnection.dbConnect());
+
+        if (checkFields()) {
+            String name = sname.getText();
+            String des = sdes.getText();
+
+            if (action.updateSubjcts(subjects.getId(), name, des)) {
+                System.out.print("updated");
+                ((Node) (event.getSource())).getScene().getWindow().hide();
+            } else {
+                System.out.print("Not updated");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Errror accured");
+                alert.setContentText("Error updating data");
+                alert.show();
+            }
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Errror accured");
+            alert.setContentText("Please fill all fields");
+            alert.show();
+        }
+
+    }
+
+    void setEdit(Mclass mclass) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @FXML
+    private void cencelForm(ActionEvent event) {
+        System.exit(0);
+    }
+
+   
+    
 }

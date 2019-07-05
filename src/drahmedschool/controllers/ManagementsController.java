@@ -7,7 +7,8 @@ package drahmedschool.controllers;
 
 import drahmedschool.db.dbActions;
 import drahmedschool.db.dbConnection;
-import drahmedschool.db.models.Payments;
+import drahmedschool.db.models.Musers;
+import drahmedschool.db.models.Subjects;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -39,118 +40,35 @@ import javafx.util.Callback;
  *
  * @author Mohamed Jiingad
  */
-public class SalaryPaymentsController implements Initializable {
-
+public class ManagementsController implements Initializable {
+ 
     @FXML
-    private TableView<Payments> paymentsTable;
+    private TableView<Musers> usersTable;
     @FXML
-    private TableColumn<Payments, String> nocolumn;
+    private TableColumn<Musers, String> nocolumn;
     @FXML
-    private TableColumn<Payments, String> actionsColumn;
+    private TableColumn<Musers, String> uname;
     @FXML
-    private TableColumn<Payments, String> payto;
+    private TableColumn<Musers, String> uemail;
     @FXML
-    private TableColumn<Payments, String> amount;
-    @FXML
-    private TableColumn<Payments, String> type;
-    @FXML
-    private TableColumn<Payments, String> pdate;
-
-
+    private TableColumn<Musers, String> actionsColumn;
+  
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        getPayments();
+        getMusers();
+        
     }    
 
     @FXML
-    private void AddNew(ActionEvent event) {
- 
+    private void addNew(ActionEvent event) {
          Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/NewSalaryPayment.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Newmanagements.fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(TeacherController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        Scene scene = new Scene(root);
-        Stage stage= new Stage();
-        stage.setScene(scene);
-        
-//        Stage properties
-        stage.setTitle("Dr Ahmed School");
-        stage.setResizable(false);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.centerOnScreen();
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
-          stage.setOnHidden(e -> {
-           getPayments();
-        });
-        stage.show();
-    }
-    
- private void getPayments() {
-   
-         ObservableList<Payments> Obs = FXCollections.observableArrayList();
-        dbActions action = new dbActions(dbConnection.dbConnect());
-        ResultSet rs;
-        rs = action.getPayments();
-        try {
-            int no = 0;
-            while (rs.next()) {
-                no++;
-                Obs.add(new Payments(
-                        Integer.toString(no),
-                        rs.getString("id"),
-                        rs.getString("type"),
-                        rs.getString("payto"),
-                        rs.getString("amount"),
-                        rs.getString("fdate")
-                ));
-            }
-            initpaymentsTable(Obs);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(SalaryPaymentsController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-            //Model
-    private void initpaymentsTable(ObservableList<Payments> Obs) {
-        nocolumn.setCellValueFactory(new PropertyValueFactory<>("no"));
-        type.setCellValueFactory(new PropertyValueFactory<>("type"));
-        payto.setCellValueFactory(new PropertyValueFactory<>("payto"));
-        pdate.setCellValueFactory(new PropertyValueFactory<>("date"));   
-        amount.setCellValueFactory(new PropertyValueFactory<>("Amount"));
-
-        actionsColumn.setCellFactory(cellFactory);
-
-        paymentsTable.setItems(Obs);
-
-    }
-    
- public void removePayments(String id) {
-        dbActions action = new dbActions(dbConnection.dbConnect());
-
-        if (action.removePayments(id)) {
-            getPayments();
-        } else {
-            System.out.print("Error Accured while removing");
-        }
-    }
- 
-  private void editpayments(Payments payments) {
-       FXMLLoader loader = null;
-        Parent root = null;
-        try {
-            loader = new FXMLLoader(getClass().getClassLoader().getResource("drahmedschool/views/NewSalaryPayment.fxml"));
-            root = (Parent)loader.load();
-
-            NewSalaryPaymentsController con = loader.<NewSalaryPaymentsController>getController();
-            con.setEdit(payments);
-        } catch (IOException ex) {
-            Logger.getLogger(SalaryPaymentsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ExamController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         Scene scene = new Scene(root);
@@ -164,15 +82,91 @@ public class SalaryPaymentsController implements Initializable {
         stage.centerOnScreen();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
         stage.setOnHidden(e -> {
-            getPayments();
+          getMusers();
         });
         stage.show();
-            
-             }
- 
-     Callback<TableColumn<Payments, String>, TableCell<Payments, String>> cellFactory = (final TableColumn<Payments, String> param) -> {
-      
-         final TableCell<Payments, String> cell = new TableCell<Payments, String>() {
+        
+    }
+
+  
+
+    private void getMusers() {
+        
+         ObservableList<Musers> Obs = FXCollections.observableArrayList();
+         
+        dbActions action = new dbActions(dbConnection.dbConnect());
+        ResultSet rs;
+        rs = action.getMusers();
+        try {
+            int no = 0;
+            while (rs.next()) {
+                no++;
+                Obs.add(new Musers(
+                        Integer.toString(no),
+                        rs.getString("id"),
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("password")
+                ));
+            }
+            initusersTable(Obs);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ManagementsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void initusersTable(ObservableList<Musers> Obs) {
+        nocolumn.setCellValueFactory(new PropertyValueFactory<>("no"));
+        uname.setCellValueFactory(new PropertyValueFactory<>("name"));
+        uemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+       actionsColumn.setCellFactory(cellFactory);
+
+
+        usersTable.setItems(Obs);
+
+    }
+     public void removeMusers(String id) {
+        dbActions action = new dbActions(dbConnection.dbConnect());
+
+        if (action.removeMusers(id)) {
+            getMusers();
+        } else {
+            System.out.print("Error Accured while removing");
+        }
+    }
+     
+      private void editmusers(Musers musers) {
+            FXMLLoader loader = null;
+        Parent root = null;
+        try {
+            loader = new FXMLLoader(getClass().getClassLoader().getResource("drahmedschool/views/Newmanagements.fxml"));
+            root = (Parent)loader.load();
+
+            NewmanagementsController con = loader.<NewmanagementsController>getController();
+            con.setEdit(musers);
+        } catch (IOException ex) {
+            Logger.getLogger(ManagementsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+
+//        Stage properties
+        stage.setTitle("Dr Ahmed School");
+        stage.setResizable(false);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.centerOnScreen();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
+        stage.setOnHidden(e -> {
+            getMusers();
+        });
+        stage.show();
+
+      }
+    Callback<TableColumn<Musers, String>, TableCell<Musers, String>> cellFactory = (final TableColumn<Musers, String> param) -> {
+        final TableCell<Musers, String> cell = new TableCell<Musers, String>() {
 
             final Button rbtn = new Button("Remove");
             final Button ebtn = new Button("Edit");
@@ -193,24 +187,29 @@ public class SalaryPaymentsController implements Initializable {
                     con.getChildren().addAll(rbtn, ebtn);
 
                     rbtn.setOnAction(event -> {
-                         Payments Payments = getTableView().getItems().get(getIndex());
-                        removePayments(Payments.getId()); 
+                        Musers musers = getTableView().getItems().get(getIndex());
+                        removeMusers(musers.getId());
                         System.out.println("Deleting ");
                     });
 
                     ebtn.setOnAction(event -> {
-                           Payments payments = getTableView().getItems().get(getIndex());
+                        Musers musers = getTableView().getItems().get(getIndex());
 
-                        editpayments(payments);
+                        editmusers(musers);
                     });
                     setGraphic(con);
                     setText(null);
                 }
             }
 
-            
+           
         };
         return cell;
     };
+
+   
+
+   
+    }
     
-}
+
