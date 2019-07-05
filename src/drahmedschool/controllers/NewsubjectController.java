@@ -126,7 +126,7 @@ public class NewsubjectController implements Initializable {
 
     @FXML
     private void cencelForm(ActionEvent event) {
-        System.exit(0);
+        //
     }
 
    

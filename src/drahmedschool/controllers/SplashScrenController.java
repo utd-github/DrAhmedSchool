@@ -67,7 +67,7 @@ public class SplashScrenController implements Initializable {
     private void loadloginview() {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/MAinView.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("drahmedschool/views/Login.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(StudentsController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -78,7 +78,7 @@ public class SplashScrenController implements Initializable {
 
 //        Stage properties
         stage.setTitle("Dr Ahmed School");
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.centerOnScreen();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));
 

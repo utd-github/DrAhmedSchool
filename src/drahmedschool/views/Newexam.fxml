@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drahmedschool.controllers.NewexamController">
+<AnchorPane id="AnchorPane" prefHeight="492.0" prefWidth="565.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drahmedschool.controllers.NewexamController">
    <stylesheets>
       <URL value="@/drahmedschool/assets/css/Main.css" />
    </stylesheets>
    <children>
-      <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="162.0" layoutY="75.0" prefHeight="340.0" prefWidth="350.0" spacing="15.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="75.0">
+      <VBox alignment="CENTER" fillWidth="false" layoutX="58.0" layoutY="68.0" prefHeight="332.0" prefWidth="449.0" spacing="15.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="88.0" AnchorPane.topAnchor="80.0">
          <children>
             <JFXTextField fx:id="type" prefHeight="39.0" prefWidth="284.0" promptText="Type">
                <font>
@@ -31,20 +31,6 @@
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-         </children>
-      </VBox>
-      <JFXButton cancelButton="true" layoutX="527.0" layoutY="449.0" onAction="#cancelForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="submit" defaultButton="true" layoutX="611.0" layoutY="449.0" onAction="#submitForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </JFXButton>
-      <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="352.0" layoutY="110.0" prefHeight="174.0" prefWidth="350.0" spacing="15.0" AnchorPane.bottomAnchor="216.0" AnchorPane.leftAnchor="352.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="110.0">
-         <children>
             <JFXTextField fx:id="eclass" prefHeight="39.0" prefWidth="291.0" promptText="Exam Class">
                <font>
                   <Font size="15.0" />
@@ -57,12 +43,22 @@
             </JFXTextField>
          </children>
       </VBox>
+      <JFXButton cancelButton="true" layoutX="388.0" layoutY="443.0" onAction="#cancelForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #d63031;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="submit" defaultButton="true" layoutX="476.0" layoutY="443.0" onAction="#submitForm" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #4cd137;" text="Submit" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
       <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="7.0" prefHeight="76.0" prefWidth="700.0" AnchorPane.bottomAnchor="424.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <padding>
             <Insets left="10.0" />
          </padding>
       </HBox>
-      <JFXButton fx:id="update" cancelButton="true" layoutX="445.0" layoutY="449.0" onAction="#updateExam" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #192a56;" text="Update" textFill="WHITE">
+      <JFXButton fx:id="update" cancelButton="true" layoutX="303.0" layoutY="443.0" onAction="#updateExam" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #192a56;" text="Update" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>

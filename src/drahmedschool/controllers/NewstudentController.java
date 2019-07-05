@@ -116,7 +116,7 @@ public class NewstudentController implements Initializable {
 
     @FXML
     private void cancelForm(ActionEvent event) {
-        System.exit(0);
+        //
     }
 
     @FXML

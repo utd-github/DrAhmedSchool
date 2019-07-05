@@ -85,7 +85,7 @@ public class LoginController implements Initializable {
 
             //  Stage properties
             stage.setTitle("Dr Ahmed School");
-            stage.setMaximized(true);
+            stage.setMaximized(false);
             stage.centerOnScreen();
             stage.setScene(scene);
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/drahmedschool/assets/images/logo.png")));

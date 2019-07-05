@@ -45,12 +45,12 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="8.0" layoutY="-27.0" prefHeight="45.0" prefWidth="271.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Student">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Students">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
                <font>
-                  <Font size="15.0" />
+                  <Font size="25.0" />
                </font>
             </Text>
          </children>

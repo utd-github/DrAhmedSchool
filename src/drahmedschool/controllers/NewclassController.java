@@ -142,7 +142,7 @@ public class NewclassController implements Initializable {
 
     @FXML
     private void cancelForm(ActionEvent event) {
-    System.exit(0);
+    //
     }
 
     
